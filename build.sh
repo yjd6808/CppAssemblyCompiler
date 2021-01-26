@@ -7,6 +7,41 @@
 # 아키텍쳐
 arch="elf64"
 
+# C & CPP 컴파일러
+compiler="g++"
+
+# 어셈블러
+assembler="nasm"
+
+# 빌드 디렉토리
+#build_directory="_temp"
+#build_directory="1. CPP와 어셈블리 파일 통합 컴파일"
+#build_directory="2. 기본연산"
+#build_directory="3. 데이터 저장형식"
+#build_directory="4. 역수, 곱셈, 나눗셈"
+#build_directory="4. test1"
+#build_directory="4. test2"
+#build_directory="4. test3"
+#build_directory="4. test4"
+#build_directory="5. 비트 데이터"
+#build_directory="5. test1"
+#build_directory="5. test2"
+#build_directory="5. test3"
+#build_directory="5. test5"
+#build_directory="5. test6"
+#build_directory="5. test7"
+#build_directory="5. test8"
+build_directory="5. test13"
+
+
+
+
+
+
+
+
+
+
 # 실행파일
 result_filename="main.exe"
 
@@ -16,8 +51,7 @@ COLOR_DEFAULT='\033[0m'
 
 # 문자열 비교시 대소문자 무시
 shopt -s nocasematch 
-
-
+cd "${build_directory}"
 
     echo -e "${COLOR_LOGO}"
     echo =================================================
@@ -41,6 +75,7 @@ arr_asm_files=()
 for file in $files ; do
     if [[ $file == *".cpp"* ]] ; then
         arr_cpp_files+=("$file")
+        echo "CPP 파일 : " $file
     fi
 done
 
@@ -58,7 +93,7 @@ done
     echo -e "${COLOR_DEFAULT}"
 
 for file in ${arr_cpp_files[@]} ; do
-    gcc -c $file
+    $compiler -c $file
 
     if [ $? -ne 0 ] ; then
         exit -1
@@ -73,7 +108,7 @@ done
 
 #asm 파일 컴파일
 for file in $arr_asm_files ; do
-    nasm -f $arch $file
+    $assembler -f $arch $file
 
     if [ $? -ne 0 ] ; then
         exit -1
@@ -98,7 +133,7 @@ done
     echo =================================================
     echo -e "${COLOR_DEFAULT}"
 
-gcc -o $result_filename $object_files
+$compiler -o $result_filename $object_files
 
 if [[ $? -ne 0 ]] ; then
     echo 빌드 실패

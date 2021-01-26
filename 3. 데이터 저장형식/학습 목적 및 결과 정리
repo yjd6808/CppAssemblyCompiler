@@ -1,0 +1,20 @@
+어셈블리어의 경우 저수준의 언어이기 때문에 자료형의 구분이 되지 않는데
+unsigned int와 int 모두 4바이트 정수 자료형인데 어떻게 표현되는지 확인해보자
+
+function:
+    mov byte[asm_cNumber1], 255
+    mov byte[asm_ucNumber1], 255
+
+    mov byte[asm_cNumber2], -1
+    mov byte[asm_ucNumber2], -1
+    ret
+
+[실행결과]
+asm_cNumber1 : -1
+asm_cNumber2 : -1
+asm_ucNumber1 : 255
+asm_ucNumber2 : 255
+
+[학습결과]
+C언어와 같은 고수준의 언어는 데이터 크기와 더불어 자료형을 엄격히 구분하고 있다.
+하지만 어셈블리어는 데이터 크기만 지정할 뿐 그것이 무엇을 의미하는지는 지정하지 못한다.

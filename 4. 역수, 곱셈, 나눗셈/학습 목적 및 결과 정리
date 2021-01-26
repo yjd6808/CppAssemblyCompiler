@@ -1,0 +1,94 @@
+어셈블리어를 통해 나눗셈, 곱셈 역수 연산을 수해애해 보자
+
+[하다가 우연히 궁금증 해결]
+EAX레지스터와 AX레지스터, AH 레지스터는 같은 메모리 공간을 공유하는지 확인하였다.
+그림상으로는 공유하는 것처럼 그려져 있어서..
+하나의 레지스터의 비트 영역에 이름을 붙여놓앗나보다
+
+function:
+    mov al, 125
+    mov ax, 130
+    mov byte[cpp_cByte], al
+    mov word[cpp_sWord], ax
+    
+[출력결과]
+cpp_cByte : -126
+cpp_sWord : 130
+
+같은 메모리 공간을 공유하는 것으로 확인하였다.
+
+
+[곱셈, 역수, 나눗셈 학습]
+
+[역수]
+global initialize
+initialize:
+    mov byte[cpp_cByte],    125         ;   cpp_cByte = 125
+    mov word[cpp_sWord],    30000       ;   cpp_sWord = 30000
+    mov dword[cpp_dWord],   1250000000  ;   cpp_dWord = 1250000000
+    ret
+
+global reverse_value
+reverse_value:
+    neg byte[cpp_cByte]
+    neg word[cpp_sWord]
+    neg dword[cpp_dWord]
+    ret
+
+[실행결과]
+cpp_cByte : 125
+cpp_sWord : 30000
+cpp_dWord : 1250000000
+=====================================
+cpp_cByte : -125
+cpp_sWord : -30000
+cpp_dWord : -1250000000
+
+
+[곱셈 - 1]
+mov bl,    10                   ;   bl = 10
+mov al,    2                    ;   al = 2
+mul bl                          ;   ax = al * bl
+mov word[asm_dwValue1], ax      ;   asm_dwValue1 = ax
+
+[실행결과]
+asm_dwValue1 : 20
+
+--> n 비트 * n 비트 = 2n 비트가 됨을 알 수 있다.
+8  * 8 비트 = 16비트
+16 * 16비트 = 32비트
+32 * 32비트 = 32비트
+
+[곱셈 - 2]
+mul : unsigned 곱연산에 사용된다. 왼쪽 피연산자와 오른쪽 피 연산자 모두 음수가 아닌 수를 곱할때 사용한다
+imul: signed 곱연산에 사용된다. 
+
+;  mul : unsigned 계산용
+mov     bl,    100              ;   bl = 100
+mov     al,    1                ;   al = 1
+mul     bl                      ;   ax = al * bl
+mov     word[asm_wValue1],    ax;   asm_wValue1 = 100
+
+;  imul : signed 계산용
+mov     bl,     5               ;   bl = 5
+mov     al,    -3               ;   al = -3
+imul    bl                      ;   ax = al * bl
+mov     word[asm_wValue2],    ax;   asm_wValue2 = -15
+
+[출력결과]
+[ mul 100 * 1] asm_wValue1 : 100 / bitset : 0000000001100100
+[imul   5 *-3] asm_wValue2 : -15 / bitset : 1111111111110001
+
+
+[나눗셈] - 1]
+div  : unsigned 연산
+divi : signed 연산
+
+mov     bl, 5                   ;   bl = 5
+mov     ax, 6                   ;   al = 5
+div     bl                      ;   ax / bl = al ... ah
+mov     byte[asm_bValue1],    al;   asm_wValue1 = ax(몫)
+mov     byte[asm_bValue2],    ah;   asm_wValue2 = dx(나머지)
+
+[출력결과]
+몫 : 1 / 나머지 : 1

@@ -1,0 +1,393 @@
+========================================================================
+[비트 쉬프트]
+
+shr : 논리 쉬프트 : 앞의 부호 비트를 고려 하지 않고 모든 비트를 우측으로 이동
+shl : 논리 쉬프트 : 앞의 부호 비트를 고려 하지 않고 모든 비트를 왼쪽
+
+sar : 산술 쉬프트 : 앞의 부호는 고정하고 나머지 비트만 우측으로 이동
+sal : 산술 쉬프트 : 앞의 부호는 고정하고 나머지 비트만 왼쪽
+
+[왼쪽 시프트]
+1 << 2 : 4
+
+[오른쪽 시프트]
+4 >> 2 : 1
+
+[오른쪽 논리 시프트] --> shr
+-32 >> 2 before : -32   11100000
+-32 >> 2 after  : -8    11111000
+
+[오른쪽 산술 시프트] --> sar
+-32 >> 2 before : -32   11100000
+-32 >> 2 after  : -8    11111000
+
+========================================================================
+
+[논리 연산]
+
+global and_operation
+and_operation:
+    mov     al,    12
+    mov     bl,    10
+    and     al,    bl
+    mov     byte[cValue_1],     al     ;   cValue_1 = 12 & 10
+
+    ret
+
+global or_operation
+or_operation:
+    mov     al,    12
+    mov     bl,    10
+    or      al,    bl
+    mov     byte[cValue_1],     al     ;   cValue_1 = 12 | 10
+    
+    ret
+
+global xor_operation
+xor_operation:
+    mov     al,    12
+    mov     bl,    10
+    xor     al,    bl
+    mov     byte[cValue_1],     al     ;   cValue_1 = 12 ^ 10
+    
+    ret
+
+global not_operation
+not_operation:
+    mov     byte[cValue_1],     10
+    not     byte[cValue_1]              ;   cValue_1 = ~cValue_1
+
+    ret
+
+[AND 논리 연산]]
+1100(12) & 1010(10) : 00001000
+[OR] 논리 연산]]
+1100(12) | 1010(10) : 00001110
+[XOR] 논리 연산]]
+1100(12) ^ 1010(10) : 00000110
+[NOT] 논리 연산]]
+~0000 1010(10) : 11110101
+
+========================================================================
+[비트 마스킹]
+
+global LSB_to_1
+LSB_to_1:
+    mov     byte[cValue_1],     10
+    or      byte[cValue_1],     0x01
+
+    ret
+
+; 맨오른쪽 비트만 0으로 바꾸기 - 산술 비트 이동을 사용하여 최상위비트는 바뀌지 않도록함
+global LSB_to_0
+LSB_to_0:
+    mov     byte[cValue_1],     11      ;   0000 1011
+    sar     byte[cValue_1],     1       ;   0000 0101
+    sal     byte[cValue_1],     1       ;   0000 1010
+
+    ret
+
+global MSB_to_1
+MSB_to_1:
+     mov     byte[cValue_1],     11      ;   0000 1011
+     or      byte[cValue_1],     0x80    ;   0000 1011 | 1000 0000
+
+    ret
+
+global MSB_to_0
+MSB_to_0:
+    mov     byte[cValue_1],     -117    ;   1000 1011 (-117)
+    shl     byte[cValue_1],     1       ;   0001 0110
+    shr     byte[cValue_1],     1       ;   0000 1011
+    
+    ret
+
+[출력 결과]
+
+[LSB to 1]
+0000 1010(10) => 00001011
+[LSB to 0]
+0000 1011(11) => 00001010
+[MSB to 1]
+0000 1011(11) => 10001011
+[MSB to 0]
+1000 1011(-117) => 00001011
+
+========================================================================
+[바이트 순서]
+빅 엔디안 : 큰수부터 메모리에 저장됨
+리틀 엔디안 : 작은수 부터 메모리에 저장됨
+
+iValue_1 = 0x12345678;
+
+global check_processor_endian
+check_processor_endian:
+	mov		al,					[iValue_1 + 0]
+	mov		byte[cValue_1],		al
+
+	mov		al,					[iValue_1 + 1]
+	mov		byte[cValue_2],		al
+
+	mov		al,					[iValue_1 + 2]
+	mov		byte[cValue_3],		al
+
+	mov		al,					[iValue_1 + 3]
+	mov		byte[cValue_4],		al
+
+	ret
+
+[출력결과]
+num : 12345678
+78 56 34 12
+
+작은수인 78부터 저장되므로 CPU는 리틀 엔디안 방식을 따른다
+
+========================================================================
+[데이터 변환]
+
+int i;
+short s;
+char c;
+
+i = (int)s; 
+16비트 변수 s를 32비트 크기로 확대하여 변수 i에 저장한다.
+
+cbw     :   convert byte to word        :   al 레지스터의 내용을 16비트로 확대하여 ax 레지스터에 저장한다
+cwd     :   convert word to double word	:	ax 레지스터의 내용을 32비트로 확대하여 상위 16비트는 dx 레지스터, 하위 16비트는 ax 레지스터에 저장한다.
+cwde	:	convert word to double word extende : ax 레지스터의 내용을 32비트로 확대하여 eax 레지스터에 저장한다.
+movsx	:	move with sign extended		: 	8비트 또는 16비트 레지스터 내용을 16비트 또는 32비트로 확대하여 넣는다. (부호 있는 연산)
+			8bit -> 32bit도 가능
+movzx	:	move with zero extended		:	8비트 또는 16비트 레지스터 내용을 16비트 또는 32비트로 확대하여 넣는다. (부호 없느 연산) 
+			단, 확대된 비트에는 무조건 0이 들어간다.
+
+global check_cbw_init
+check_cbw_init:
+	mov		ax,					0
+
+	mov		byte[cValue_3],		al			;	cValue_3 = 0
+	mov		byte[cValue_4],		ah			;	cValue_3 = 0
+
+	ret
+
+global check_cbw
+check_cbw:
+	
+	mov		al,					[cValue_1]
+	cbw
+
+	mov		byte[cValue_3],		al
+	mov		byte[cValue_4],		ah
+
+	mov		word[sValue_1],		ax
+
+	ret
+
+[cbw]
+cbw before : cValue :-5 sValue :-10
+register : al : 0x0     ah : 0x0
+cbw after  : cValue :-5 sValue :-5
+register : al : 0xfb    ah : 0xff
+
+ah 레지스터에도 확장되어 음수값이 들어간 것을 확인할 수 있다.
+
+========================================================================
+
+global check_cwd_init
+check_cwd_init:
+	mov		ax,					0
+	mov		dx,					0
+
+	mov		word[sValue_3],		ax
+	mov		word[sValue_4],		dx
+
+	ret
+
+global check_cwd
+check_cwd:
+	mov		ax,					[sValue_1]
+	cwd
+
+	mov		word[sValue_3],		ax
+	mov		word[sValue_4],		dx
+
+	ret
+
+[cwd]
+cwd before : sValue :-5 iValue :-10
+register : ax : 0x0     dx : 0x0
+cwd after : ax와 dx데이터를 어떻게 하나로 합치지?
+register : ax : 0xfffb  dx : 0xffff
+
+하위 바이트는 ax 레지스터 상위 바이트는 dx 레지스터에 들어간 것을 확인할 수 있다.
+
+========================================================================
+
+global check_cwde_init
+check_cwde_init:
+	mov		eax,				0
+	mov		dword[iValue_2],	eax
+	ret
+
+global check_cwde
+check_cwde:
+	mov		ax,					[sValue_1]
+	cwde
+
+	mov		dword[iValue_1],	eax
+
+	ret
+
+[cwde]
+cwde before : sValue :-5        iValue :-10
+register : eax : 0x0
+cwde before : sValue :-5        iValue :-5
+register : eax : 0xfffffffb
+
+ax 레지스터가 확장되어 eax 레지스터 전체에 내용이 저장된다.
+
+========================================================================
+
+global check_movsx
+check_movsx:
+	movsx	ax,					byte[cValue_1]
+	mov		word[sValue_1],		ax					;	sValue_1 = (short)cValue_1
+
+	movsx	eax,				word[sValue_1]
+	mov		dword[iValue_1],	eax					;	sValue_1 = (int)sValue_1
+
+	ret
+
+[movsx]
+cValue_1 : -3 / fffffffd
+sValue_1 : -5 / fffffffb
+iValue_1 : -10 / fffffff6
+cValue_1 : -3 / fffffffd
+sValue_1 : -3 / fffffffd
+iValue_1 : -3 / fffffffd
+
+부호에 맞게 상위 비트가 채워진것을 확인할 수 있다.
+음수의 경우 1로 모두 채워졌다.
+
+========================================================================
+
+global check_movzx
+check_movzx:
+	movzx	ax,					byte[cValue_1]
+	mov		word[sValue_1],		ax					;	sValue_1 = (short)cValue_1
+
+	movzx	eax,				word[sValue_1]
+	mov		dword[iValue_1],	eax					;	sValue_1 = (int)sValue_1
+
+	ret
+
+[movzx]
+cValue_1 : -3 / fffffffd
+sValue_1 : -5 / fffffffb
+iValue_1 : -10 / fffffff6
+cValue_1 : -3 / fffffffd
+sValue_1 : 253 / 000000fd
+iValue_1 : 253 / 000000fd
+
+상위비트가 무조건 0으로 채워진 것을 확인할 수 있다.
+음수를 다룰때는 쓰지 않아야 할 것으로 보인다.
+
+
+========================================================================
+[비트 회전]
+rol : rotate left : 비트를 한칸씩 왼쪽으로 이동한다.	이 때 MSB의 비트는 LSB로 넘어간다.
+ror : rotate right : 비트를 한칸씩 오른쪽으로 이동한다. 이 때 LSB의 비트는 MSB로 넘어간다.
+
+
+global check_rol
+check_rol:
+	rol		byte[cValue_1],		1					;	비트씩 왼쪽으로 밀기 MSB의 비트는 LSB로 이동
+
+	ret
+
+global check_rol
+check_rol:
+	ror		byte[cValue_1],		1					;	비트씩 오른쪽으로 밀기 LSB의 비트는 MSB로 이동
+
+	ret
+
+[rol]
+0번 rol : cValue_1 : -32 / 11100000 -> 회전하기 전 초기값
+1번 rol : cValue_1 : -63 / 11000001	-> 1회 오른쪽 이동
+2번 rol : cValue_1 : -125 / 10000011
+
+[ror]
+1번 ror : cValue_1 : -63 / 11000001
+2번 ror : cValue_1 : -32 / 11100000
+
+
+
+global check_cf_on_rcl
+check_cf_on_rcl:
+	stc												;	Carry Flag = 1
+	rcl		byte[cValue_1],		1					;	비트씩 왼쪽으로 밀기 MSB의 비트는 LSB로 이동, 회전한 비트는 1로 세팅
+
+	ret
+
+global check_cf_off_rcl
+check_cf_off_rcl:
+	clc												;	Carry Flag = 0
+	rcl		byte[cValue_1],		1					;	비트씩 왼쪽으로 밀기 MSB의 비트는 LSB로 이동, 회전한 비트는 0로 세팅
+
+	ret
+
+global check_cf_on_rcr
+check_cf_on_rcr:
+	stc												;	Carry Flag = 1
+	rcr		byte[cValue_1],		1					;	비트씩 왼쪽으로 밀기 MSB의 비트는 LSB로 이동, 회전한 비트는 1로 세팅
+
+	ret
+
+global check_cf_off_rcr
+check_cf_off_rcr:
+	clc												;	Carry Flag = 0
+	rcr		byte[cValue_1],		1					;	비트씩 왼쪽으로 밀기 MSB의 비트는 LSB로 이동, 회전한 비트는 0로 세팅
+	
+	ret
+
+
+값 변경 : cValue_1 : 32
+[CF(Carry Flag) 레지스터 값이 1일 때 rcl]
+1번째 rcl : cValue_1 : 65        / 01000001
+2번째 rcl : cValue_1 : -125      / 10000011
+3번째 rcl : cValue_1 : 7         / 00000111
+4번째 rcl : cValue_1 : 15        / 00001111
+5번째 rcl : cValue_1 : 31        / 00011111
+6번째 rcl : cValue_1 : 63        / 00111111
+7번째 rcl : cValue_1 : 127       / 01111111
+
+값 원상태로 복구 : cValue_1 : 32
+[CF(Carry Flag) 레지스터 값이 0일 때 rcl]
+1번째 rcl : cValue_1 : 64        / 01000000
+2번째 rcl : cValue_1 : -128      / 10000000
+3번째 rcl : cValue_1 : 0         / 00000000
+4번째 rcl : cValue_1 : 0         / 00000000
+5번째 rcl : cValue_1 : 0         / 00000000
+6번째 rcl : cValue_1 : 0         / 00000000
+7번째 rcl : cValue_1 : 0         / 00000000
+
+값 원상태로 복구 : cValue_1 : 32
+[CF(Carry Flag) 레지스터 값이 1일 때 rcr]
+1번째 rcr : cValue_1 : -112      / 10010000
+2번째 rcr : cValue_1 : -56       / 11001000
+3번째 rcr : cValue_1 : -28       / 11100100
+4번째 rcr : cValue_1 : -14       / 11110010
+5번째 rcr : cValue_1 : -7        / 11111001
+6번째 rcr : cValue_1 : -4        / 11111100
+7번째 rcr : cValue_1 : -2        / 11111110
+
+값 원상태로 복구 : cValue_1 : 32
+[CF(Carry Flag) 레지스터 값이 0일 때 rcr]
+1번째 rcr : cValue_1 : 16        / 00010000
+2번째 rcr : cValue_1 : 8         / 00001000
+3번째 rcr : cValue_1 : 4         / 00000100
+4번째 rcr : cValue_1 : 2         / 00000010
+5번째 rcr : cValue_1 : 1         / 00000001
+6번째 rcr : cValue_1 : 0         / 00000000
+7번째 rcr : cValue_1 : 0         / 00000000
+
+작동방식은 rol, ror 명령어와 같으나 회전한 비트는 Carry Flag 값으로 세팅되는 것을 확인할 수 있다.
