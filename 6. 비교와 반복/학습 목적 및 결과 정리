@@ -2,16 +2,25 @@
 [플래그와 분기]
 
 CF	:	캐리 플래그
-		->	예를 들어 더하는 과정에서 정해진 비트 수를 넘어서는 자리 올림이 발생하면 1이 된다.
+		->	연산 결과가 unsigned overflow가 발생할 때 1로 세팅된다.
+		->	ex) UINT8 + 1, UINT16 + 1과 같은 연산 후에...
 
 ZF	:	제로 플래그
-		->	예를 들어 더한 결과가 0일 경우 1이 된다.
+		->	연산 결과가 0일 경우 1이 된다.
 
 SF	:	사인 플래그
-		->	예를 들어 더한 결과가 음수라면 1이 된다.
+		->	연산 결과가 음수라면 1이 된다.
 
 OF	:	오버플로 플래그
-		->	예를 들어 더한 결과가 정해진 범위를 초과하면 1이 된다.
+		->	연산 결과가 signed overflow가 발생할 때 1이 된다.
+		->	ex) INT8 + 1, INT16 + 1
+
+PF	:	패리티 플래그
+		->	연산결과에 1인 bit 개수가 짝수개이면 1 홀수개이면 0
+
+AF	:	옥셔러리 플래그
+		->	연산결과 하위 4bit에 unsigned overflow가 발생했을 때 1로 세팅된다.
+	
 
 JC	:	캐리 플래그가 1이면 해당 레이블로 분기
 JZ	:	제로 플래그가 1이면 해당 레이블로 분기
@@ -28,3 +37,72 @@ JMP	:	해당 레이블로 무조건 분기
 ========================================================================
 [플래그 비트 확인]
 
+lahf	:	AH 레지스터에 플래그 레지스터의 하위 8비트 플래그 값을 담는다.
+
+15: reserved for future purposes
+14: Nested-Task
+13: I/O Privileged Level
+12: I/O Privileged Level
+11: Overflow-Flag
+10: Direction-Flag (see also: STD, CLD)
+9: Interrupt enable (see also: STI, CLI)
+8: Trap-Flag (Trap mode)
+7: Signflag
+6: Equal/Zero-Flag
+5: reserved for future purposes
+4: Auxiliary-Flag
+3: reserved for future purposes
+2: parity-Flag
+1: reserved for future purposes
+0: Carry-Flag
+
+========================================================================
+[비교 및 조건 점프]
+
+CMP :	왼쪽 피연산자에서 오른쪽 피연산자를 뺍니다. 뺸 결과는 저장되지 않고 플래그 값만 변경됩니다.
+		->	사용예시 CMP <r/m/imm> <r/m/imm>
+JE	:	ZF == 1 인 경우 해당 라벨로 점프합니다. ( operand1 == operand2 인 경우 )
+JNE	:	ZF == 0 인 경우 해당 라벨로 점프합니다. ( operand1 != operand2 인 경우 )
+JLE	:	ZF == 1 || SF != OF 인 경우 해당 라벨로 점프합니다. ( operand1 <= operand2 인 경우 )
+JL	:	ZF == 0 && SF != OF 인 경우 해당 라벨로 점프합니다. ( operand1 < operand2 인 경우 )
+JGE	:	ZF == 1 || SF == OF 인 경우 해당 라벨로 점프합니다. ( operand1 >= operand2 인 경우 )
+JG	:	ZF == 0 && SF == OF 인 경우 해당 라벨로 점프합니다. ( operand1 > operand2 인 경우 )
+
+TEST:	왼쪽 피연산자와 오른쪽 피연산자와 and 연산을 한 후 결과값을 저장하지 않는다. 플래그값만 변경됨
+		->	사용예시 TEST <r/m/imm> <r/m/imm>
+
+========================================================================
+[조건문]
+
+위의 비교 및 조건 점프를 활용하여 조건문을 만들 수 있다.
+
+"C lang"
+if ( score > 90 )
+	grade = 10;
+else if (score < 60)
+	grade = 0;
+else
+	grade = 5;
+
+
+
+"Assembly"
+IF_1:		cmp		dword[score],	90
+			jle		ELSE_IF_1
+			mov		dword[grade],	10
+			jmp		DONE
+
+ELSE_IF_1:	cmp		dword[score],	60
+			jge		ELSE_1
+			mov		dword[grade],	0
+			jmp		DONE
+
+ELSE_1:		mov		dword[grade],	5
+			jmp		DONE
+
+DONE:		ret
+
+========================================================================
+[반복문]
+
+위의 조건문과 마찬가지로 구성할 수 있다.

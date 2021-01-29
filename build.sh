@@ -31,13 +31,17 @@ assembler="nasm"
 #build_directory="5. test6"
 #build_directory="5. test7"
 #build_directory="5. test8"
-build_directory="5. test13"
-
-
-
-
-
-
+#build_directory="5. test13"
+#build_directory="6. 비교와 반복"
+#build_directory="6. test1"
+#build_directory="6. test2"
+#build_directory="6. test3"
+#build_directory="6. test4"
+#build_directory="6. test5"
+#build_directory="6. test6"
+#build_directory="6. test7"
+#build_directory="6. test8"
+build_directory="6. test9"
 
 
 

@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <bitset>
 
+extern void check_overflow_flag() asm("check_overflow_flag");
+
 int iValue_1;
 int iValue_2;
 int iValue_3;
@@ -19,7 +21,10 @@ char cValue_4;
 
 int main()
 {
-
+    check_overflow_flag();
+    std::cout << std::bitset<16>(sValue_1) << std::endl;
+    std::cout << std::bitset<16>(sValue_2) << std::endl;
+    std::cout << std::bitset<16>(sValue_3) << std::endl;
 
     return 0;
 }
