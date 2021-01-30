@@ -41,10 +41,11 @@ assembler="nasm"
 #build_directory="6. test6"
 #build_directory="6. test7"
 #build_directory="6. test8"
-build_directory="6. test9"
-
-
-
+#build_directory="6. test9"
+#build_directory="6. test10"
+#build_directory="6. test11"
+#build_directory="6. test12"
+build_directory="6. test14"
 
 # 실행파일
 result_filename="main.exe"
