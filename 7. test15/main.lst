@@ -1,0 +1,1403 @@
+   1              		.file	"main.cpp"
+   2              	# GNU C++14 (GCC) version 8.3.1 20191121 (Red Hat 8.3.1-5) (x86_64-redhat-linux)
+   3              	#	compiled by GNU C version 8.3.1 20191121 (Red Hat 8.3.1-5), GMP version 6.1.2, MPFR version 3.1.6
+   4              	# GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+   5              	# options passed:  -D_GNU_SOURCE main.cpp -mtune=generic -march=x86-64
+   6              	# -auxbase-strip main.s -g -O2 -fverbose-asm
+   7              	# options enabled:  -faggressive-loop-optimizations -falign-labels
+   8              	# -fasynchronous-unwind-tables -fauto-inc-dec -fbranch-count-reg
+   9              	# -fcaller-saves -fchkp-check-incomplete-type -fchkp-check-read
+  10              	# -fchkp-check-write -fchkp-instrument-calls -fchkp-narrow-bounds
+  11              	# -fchkp-optimize -fchkp-store-bounds -fchkp-use-static-bounds
+  12              	# -fchkp-use-static-const-bounds -fchkp-use-wrappers -fcode-hoisting
+  13              	# -fcombine-stack-adjustments -fcommon -fcompare-elim -fcprop-registers
+  14              	# -fcrossjumping -fcse-follow-jumps -fdefer-pop
+  15              	# -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively
+  16              	# -fdwarf2-cfi-asm -fearly-inlining -feliminate-unused-debug-types
+  17              	# -fexceptions -fexpensive-optimizations -fforward-propagate
+  18              	# -ffp-int-builtin-inexact -ffunction-cse -fgcse -fgcse-lm -fgnu-runtime
+  19              	# -fgnu-unique -fguess-branch-probability -fhoist-adjacent-loads -fident
+  20              	# -fif-conversion -fif-conversion2 -findirect-inlining -finline
+  21              	# -finline-atomics -finline-functions-called-once -finline-small-functions
+  22              	# -fipa-bit-cp -fipa-cp -fipa-icf -fipa-icf-functions -fipa-icf-variables
+  23              	# -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference -fipa-sra
+  24              	# -fipa-vrp -fira-hoist-pressure -fira-share-save-slots
+  25              	# -fira-share-spill-slots -fisolate-erroneous-paths-dereference -fivopts
+  26              	# -fkeep-static-consts -fleading-underscore -flifetime-dse -flra-remat
+  27              	# -flto-odr-type-merging -fmath-errno -fmerge-constants
+  28              	# -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
+  29              	# -foptimize-sibling-calls -foptimize-strlen -fpartial-inlining -fpeephole
+  30              	# -fpeephole2 -fplt -fprefetch-loop-arrays -free -freg-struct-return
+  31              	# -freorder-blocks -freorder-blocks-and-partition -freorder-functions
+  32              	# -frerun-cse-after-loop -fsched-critical-path-heuristic
+  33              	# -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-interblock
+  34              	# -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec
+  35              	# -fsched-spec-insn-heuristic -fsched-stalled-insns-dep -fschedule-fusion
+  36              	# -fschedule-insns2 -fsemantic-interposition -fshow-column -fshrink-wrap
+  37              	# -fshrink-wrap-separate -fsigned-zeros -fsplit-ivs-in-unroller
+  38              	# -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt
+  39              	# -fstore-merging -fstrict-aliasing -fstrict-volatile-bitfields
+  40              	# -fsync-libcalls -fthread-jumps -ftoplevel-reorder -ftrapping-math
+  41              	# -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch
+  42              	# -ftree-coalesce-vars -ftree-copy-prop -ftree-cselim -ftree-dce
+  43              	# -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
+  44              	# -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  45              	# -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pre
+  46              	# -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr
+  47              	# -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-ter
+  48              	# -ftree-vrp -funit-at-a-time -funwind-tables -fvar-tracking
+  49              	# -fvar-tracking-assignments -fverbose-asm -fzero-initialized-in-bss
+  50              	# -m128bit-long-double -m64 -m80387 -malign-stringops
+  51              	# -mavx256-split-unaligned-load -mavx256-split-unaligned-store
+  52              	# -mfancy-math-387 -mfp-ret-in-387 -mfxsr -mglibc -mieee-fp
+  53              	# -mlong-double-80 -mmmx -mno-sse4 -mpush-args -mred-zone -msse -msse2
+  54              	# -mstv -mtls-direct-seg-refs -mvzeroupper
+  55              	
+  56              		.text
+  57              	.Ltext0:
+  58              		.section	.text.startup,"ax",@progbits
+  59              		.p2align 4,,15
+  61              	_GLOBAL__sub_I_main.cpp:
+  62              	.LFB2180:
+  63              		.file 1 "/usr/include/unistd.h"
+   1:/usr/include/unistd.h **** /* Copyright (C) 1991-2018 Free Software Foundation, Inc.
+   2:/usr/include/unistd.h ****    This file is part of the GNU C Library.
+   3:/usr/include/unistd.h **** 
+   4:/usr/include/unistd.h ****    The GNU C Library is free software; you can redistribute it and/or
+   5:/usr/include/unistd.h ****    modify it under the terms of the GNU Lesser General Public
+   6:/usr/include/unistd.h ****    License as published by the Free Software Foundation; either
+   7:/usr/include/unistd.h ****    version 2.1 of the License, or (at your option) any later version.
+   8:/usr/include/unistd.h **** 
+   9:/usr/include/unistd.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  10:/usr/include/unistd.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:/usr/include/unistd.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  12:/usr/include/unistd.h ****    Lesser General Public License for more details.
+  13:/usr/include/unistd.h **** 
+  14:/usr/include/unistd.h ****    You should have received a copy of the GNU Lesser General Public
+  15:/usr/include/unistd.h ****    License along with the GNU C Library; if not, see
+  16:/usr/include/unistd.h ****    <http://www.gnu.org/licenses/>.  */
+  17:/usr/include/unistd.h **** 
+  18:/usr/include/unistd.h **** /*
+  19:/usr/include/unistd.h ****  *	POSIX Standard: 2.10 Symbolic Constants		<unistd.h>
+  20:/usr/include/unistd.h ****  */
+  21:/usr/include/unistd.h **** 
+  22:/usr/include/unistd.h **** #ifndef	_UNISTD_H
+  23:/usr/include/unistd.h **** #define	_UNISTD_H	1
+  24:/usr/include/unistd.h **** 
+  25:/usr/include/unistd.h **** #include <features.h>
+  26:/usr/include/unistd.h **** 
+  27:/usr/include/unistd.h **** __BEGIN_DECLS
+  28:/usr/include/unistd.h **** 
+  29:/usr/include/unistd.h **** /* These may be used to determine what facilities are present at compile time.
+  30:/usr/include/unistd.h ****    Their values can be obtained at run time from `sysconf'.  */
+  31:/usr/include/unistd.h **** 
+  32:/usr/include/unistd.h **** #ifdef __USE_XOPEN2K8
+  33:/usr/include/unistd.h **** /* POSIX Standard approved as ISO/IEC 9945-1 as of September 2008.  */
+  34:/usr/include/unistd.h **** # define _POSIX_VERSION	200809L
+  35:/usr/include/unistd.h **** #elif defined __USE_XOPEN2K
+  36:/usr/include/unistd.h **** /* POSIX Standard approved as ISO/IEC 9945-1 as of December 2001.  */
+  37:/usr/include/unistd.h **** # define _POSIX_VERSION	200112L
+  38:/usr/include/unistd.h **** #elif defined __USE_POSIX199506
+  39:/usr/include/unistd.h **** /* POSIX Standard approved as ISO/IEC 9945-1 as of June 1995.  */
+  40:/usr/include/unistd.h **** # define _POSIX_VERSION	199506L
+  41:/usr/include/unistd.h **** #elif defined __USE_POSIX199309
+  42:/usr/include/unistd.h **** /* POSIX Standard approved as ISO/IEC 9945-1 as of September 1993.  */
+  43:/usr/include/unistd.h **** # define _POSIX_VERSION	199309L
+  44:/usr/include/unistd.h **** #else
+  45:/usr/include/unistd.h **** /* POSIX Standard approved as ISO/IEC 9945-1 as of September 1990.  */
+  46:/usr/include/unistd.h **** # define _POSIX_VERSION	199009L
+  47:/usr/include/unistd.h **** #endif
+  48:/usr/include/unistd.h **** 
+  49:/usr/include/unistd.h **** /* These are not #ifdef __USE_POSIX2 because they are
+  50:/usr/include/unistd.h ****    in the theoretically application-owned namespace.  */
+  51:/usr/include/unistd.h **** 
+  52:/usr/include/unistd.h **** #ifdef __USE_XOPEN2K8
+  53:/usr/include/unistd.h **** # define __POSIX2_THIS_VERSION	200809L
+  54:/usr/include/unistd.h **** /* The utilities on GNU systems also correspond to this version.  */
+  55:/usr/include/unistd.h **** #elif defined __USE_XOPEN2K
+  56:/usr/include/unistd.h **** /* The utilities on GNU systems also correspond to this version.  */
+  57:/usr/include/unistd.h **** # define __POSIX2_THIS_VERSION	200112L
+  58:/usr/include/unistd.h **** #elif defined __USE_POSIX199506
+  59:/usr/include/unistd.h **** /* The utilities on GNU systems also correspond to this version.  */
+  60:/usr/include/unistd.h **** # define __POSIX2_THIS_VERSION	199506L
+  61:/usr/include/unistd.h **** #else
+  62:/usr/include/unistd.h **** /* The utilities on GNU systems also correspond to this version.  */
+  63:/usr/include/unistd.h **** # define __POSIX2_THIS_VERSION	199209L
+  64:/usr/include/unistd.h **** #endif
+  65:/usr/include/unistd.h **** 
+  66:/usr/include/unistd.h **** /* The utilities on GNU systems also correspond to this version.  */
+  67:/usr/include/unistd.h **** #define _POSIX2_VERSION	__POSIX2_THIS_VERSION
+  68:/usr/include/unistd.h **** 
+  69:/usr/include/unistd.h **** /* This symbol was required until the 2001 edition of POSIX.  */
+  70:/usr/include/unistd.h **** #define	_POSIX2_C_VERSION	__POSIX2_THIS_VERSION
+  71:/usr/include/unistd.h **** 
+  72:/usr/include/unistd.h **** /* If defined, the implementation supports the
+  73:/usr/include/unistd.h ****    C Language Bindings Option.  */
+  74:/usr/include/unistd.h **** #define	_POSIX2_C_BIND	__POSIX2_THIS_VERSION
+  75:/usr/include/unistd.h **** 
+  76:/usr/include/unistd.h **** /* If defined, the implementation supports the
+  77:/usr/include/unistd.h ****    C Language Development Utilities Option.  */
+  78:/usr/include/unistd.h **** #define	_POSIX2_C_DEV	__POSIX2_THIS_VERSION
+  79:/usr/include/unistd.h **** 
+  80:/usr/include/unistd.h **** /* If defined, the implementation supports the
+  81:/usr/include/unistd.h ****    Software Development Utilities Option.  */
+  82:/usr/include/unistd.h **** #define	_POSIX2_SW_DEV	__POSIX2_THIS_VERSION
+  83:/usr/include/unistd.h **** 
+  84:/usr/include/unistd.h **** /* If defined, the implementation supports the
+  85:/usr/include/unistd.h ****    creation of locales with the localedef utility.  */
+  86:/usr/include/unistd.h **** #define _POSIX2_LOCALEDEF       __POSIX2_THIS_VERSION
+  87:/usr/include/unistd.h **** 
+  88:/usr/include/unistd.h **** /* X/Open version number to which the library conforms.  It is selectable.  */
+  89:/usr/include/unistd.h **** #ifdef __USE_XOPEN2K8
+  90:/usr/include/unistd.h **** # define _XOPEN_VERSION	700
+  91:/usr/include/unistd.h **** #elif defined __USE_XOPEN2K
+  92:/usr/include/unistd.h **** # define _XOPEN_VERSION	600
+  93:/usr/include/unistd.h **** #elif defined __USE_UNIX98
+  94:/usr/include/unistd.h **** # define _XOPEN_VERSION	500
+  95:/usr/include/unistd.h **** #else
+  96:/usr/include/unistd.h **** # define _XOPEN_VERSION	4
+  97:/usr/include/unistd.h **** #endif
+  98:/usr/include/unistd.h **** 
+  99:/usr/include/unistd.h **** /* Commands and utilities from XPG4 are available.  */
+ 100:/usr/include/unistd.h **** #define _XOPEN_XCU_VERSION	4
+ 101:/usr/include/unistd.h **** 
+ 102:/usr/include/unistd.h **** /* We are compatible with the old published standards as well.  */
+ 103:/usr/include/unistd.h **** #define _XOPEN_XPG2	1
+ 104:/usr/include/unistd.h **** #define _XOPEN_XPG3	1
+ 105:/usr/include/unistd.h **** #define _XOPEN_XPG4	1
+ 106:/usr/include/unistd.h **** 
+ 107:/usr/include/unistd.h **** /* The X/Open Unix extensions are available.  */
+ 108:/usr/include/unistd.h **** #define _XOPEN_UNIX	1
+ 109:/usr/include/unistd.h **** 
+ 110:/usr/include/unistd.h **** /* The enhanced internationalization capabilities according to XPG4.2
+ 111:/usr/include/unistd.h ****    are present.  */
+ 112:/usr/include/unistd.h **** #define	_XOPEN_ENH_I18N	1
+ 113:/usr/include/unistd.h **** 
+ 114:/usr/include/unistd.h **** /* The legacy interfaces are also available.  */
+ 115:/usr/include/unistd.h **** #define _XOPEN_LEGACY	1
+ 116:/usr/include/unistd.h **** 
+ 117:/usr/include/unistd.h **** 
+ 118:/usr/include/unistd.h **** /* Get values of POSIX options:
+ 119:/usr/include/unistd.h **** 
+ 120:/usr/include/unistd.h ****    If these symbols are defined, the corresponding features are
+ 121:/usr/include/unistd.h ****    always available.  If not, they may be available sometimes.
+ 122:/usr/include/unistd.h ****    The current values can be obtained with `sysconf'.
+ 123:/usr/include/unistd.h **** 
+ 124:/usr/include/unistd.h ****    _POSIX_JOB_CONTROL		Job control is supported.
+ 125:/usr/include/unistd.h ****    _POSIX_SAVED_IDS		Processes have a saved set-user-ID
+ 126:/usr/include/unistd.h **** 				and a saved set-group-ID.
+ 127:/usr/include/unistd.h ****    _POSIX_REALTIME_SIGNALS	Real-time, queued signals are supported.
+ 128:/usr/include/unistd.h ****    _POSIX_PRIORITY_SCHEDULING	Priority scheduling is supported.
+ 129:/usr/include/unistd.h ****    _POSIX_TIMERS		POSIX.4 clocks and timers are supported.
+ 130:/usr/include/unistd.h ****    _POSIX_ASYNCHRONOUS_IO	Asynchronous I/O is supported.
+ 131:/usr/include/unistd.h ****    _POSIX_PRIORITIZED_IO	Prioritized asynchronous I/O is supported.
+ 132:/usr/include/unistd.h ****    _POSIX_SYNCHRONIZED_IO	Synchronizing file data is supported.
+ 133:/usr/include/unistd.h ****    _POSIX_FSYNC			The fsync function is present.
+ 134:/usr/include/unistd.h ****    _POSIX_MAPPED_FILES		Mapping of files to memory is supported.
+ 135:/usr/include/unistd.h ****    _POSIX_MEMLOCK		Locking of all memory is supported.
+ 136:/usr/include/unistd.h ****    _POSIX_MEMLOCK_RANGE		Locking of ranges of memory is supported.
+ 137:/usr/include/unistd.h ****    _POSIX_MEMORY_PROTECTION	Setting of memory protections is supported.
+ 138:/usr/include/unistd.h ****    _POSIX_MESSAGE_PASSING	POSIX.4 message queues are supported.
+ 139:/usr/include/unistd.h ****    _POSIX_SEMAPHORES		POSIX.4 counting semaphores are supported.
+ 140:/usr/include/unistd.h ****    _POSIX_SHARED_MEMORY_OBJECTS	POSIX.4 shared memory objects are supported.
+ 141:/usr/include/unistd.h ****    _POSIX_THREADS		POSIX.1c pthreads are supported.
+ 142:/usr/include/unistd.h ****    _POSIX_THREAD_ATTR_STACKADDR	Thread stack address attribute option supported.
+ 143:/usr/include/unistd.h ****    _POSIX_THREAD_ATTR_STACKSIZE	Thread stack size attribute option supported.
+ 144:/usr/include/unistd.h ****    _POSIX_THREAD_SAFE_FUNCTIONS	Thread-safe functions are supported.
+ 145:/usr/include/unistd.h ****    _POSIX_THREAD_PRIORITY_SCHEDULING
+ 146:/usr/include/unistd.h **** 				POSIX.1c thread execution scheduling supported.
+ 147:/usr/include/unistd.h ****    _POSIX_THREAD_PRIO_INHERIT	Thread priority inheritance option supported.
+ 148:/usr/include/unistd.h ****    _POSIX_THREAD_PRIO_PROTECT	Thread priority protection option supported.
+ 149:/usr/include/unistd.h ****    _POSIX_THREAD_PROCESS_SHARED	Process-shared synchronization supported.
+ 150:/usr/include/unistd.h ****    _POSIX_PII			Protocol-independent interfaces are supported.
+ 151:/usr/include/unistd.h ****    _POSIX_PII_XTI		XTI protocol-indep. interfaces are supported.
+ 152:/usr/include/unistd.h ****    _POSIX_PII_SOCKET		Socket protocol-indep. interfaces are supported.
+ 153:/usr/include/unistd.h ****    _POSIX_PII_INTERNET		Internet family of protocols supported.
+ 154:/usr/include/unistd.h ****    _POSIX_PII_INTERNET_STREAM	Connection-mode Internet protocol supported.
+ 155:/usr/include/unistd.h ****    _POSIX_PII_INTERNET_DGRAM	Connectionless Internet protocol supported.
+ 156:/usr/include/unistd.h ****    _POSIX_PII_OSI		ISO/OSI family of protocols supported.
+ 157:/usr/include/unistd.h ****    _POSIX_PII_OSI_COTS		Connection-mode ISO/OSI service supported.
+ 158:/usr/include/unistd.h ****    _POSIX_PII_OSI_CLTS		Connectionless ISO/OSI service supported.
+ 159:/usr/include/unistd.h ****    _POSIX_POLL			Implementation supports `poll' function.
+ 160:/usr/include/unistd.h ****    _POSIX_SELECT		Implementation supports `select' and `pselect'.
+ 161:/usr/include/unistd.h **** 
+ 162:/usr/include/unistd.h ****    _XOPEN_REALTIME		X/Open realtime support is available.
+ 163:/usr/include/unistd.h ****    _XOPEN_REALTIME_THREADS	X/Open realtime thread support is available.
+ 164:/usr/include/unistd.h ****    _XOPEN_SHM			Shared memory interface according to XPG4.2.
+ 165:/usr/include/unistd.h **** 
+ 166:/usr/include/unistd.h ****    _XBS5_ILP32_OFF32		Implementation provides environment with 32-bit
+ 167:/usr/include/unistd.h **** 				int, long, pointer, and off_t types.
+ 168:/usr/include/unistd.h ****    _XBS5_ILP32_OFFBIG		Implementation provides environment with 32-bit
+ 169:/usr/include/unistd.h **** 				int, long, and pointer and off_t with at least
+ 170:/usr/include/unistd.h **** 				64 bits.
+ 171:/usr/include/unistd.h ****    _XBS5_LP64_OFF64		Implementation provides environment with 32-bit
+ 172:/usr/include/unistd.h **** 				int, and 64-bit long, pointer, and off_t types.
+ 173:/usr/include/unistd.h ****    _XBS5_LPBIG_OFFBIG		Implementation provides environment with at
+ 174:/usr/include/unistd.h **** 				least 32 bits int and long, pointer, and off_t
+ 175:/usr/include/unistd.h **** 				with at least 64 bits.
+ 176:/usr/include/unistd.h **** 
+ 177:/usr/include/unistd.h ****    If any of these symbols is defined as -1, the corresponding option is not
+ 178:/usr/include/unistd.h ****    true for any file.  If any is defined as other than -1, the corresponding
+ 179:/usr/include/unistd.h ****    option is true for all files.  If a symbol is not defined at all, the value
+ 180:/usr/include/unistd.h ****    for a specific file can be obtained from `pathconf' and `fpathconf'.
+ 181:/usr/include/unistd.h **** 
+ 182:/usr/include/unistd.h ****    _POSIX_CHOWN_RESTRICTED	Only the super user can use `chown' to change
+ 183:/usr/include/unistd.h **** 				the owner of a file.  `chown' can only be used
+ 184:/usr/include/unistd.h **** 				to change the group ID of a file to a group of
+ 185:/usr/include/unistd.h **** 				which the calling process is a member.
+ 186:/usr/include/unistd.h ****    _POSIX_NO_TRUNC		Pathname components longer than
+ 187:/usr/include/unistd.h **** 				NAME_MAX generate an error.
+ 188:/usr/include/unistd.h ****    _POSIX_VDISABLE		If defined, if the value of an element of the
+ 189:/usr/include/unistd.h **** 				`c_cc' member of `struct termios' is
+ 190:/usr/include/unistd.h **** 				_POSIX_VDISABLE, no character will have the
+ 191:/usr/include/unistd.h **** 				effect associated with that element.
+ 192:/usr/include/unistd.h ****    _POSIX_SYNC_IO		Synchronous I/O may be performed.
+ 193:/usr/include/unistd.h ****    _POSIX_ASYNC_IO		Asynchronous I/O may be performed.
+ 194:/usr/include/unistd.h ****    _POSIX_PRIO_IO		Prioritized Asynchronous I/O may be performed.
+ 195:/usr/include/unistd.h **** 
+ 196:/usr/include/unistd.h ****    Support for the Large File Support interface is not generally available.
+ 197:/usr/include/unistd.h ****    If it is available the following constants are defined to one.
+ 198:/usr/include/unistd.h ****    _LFS64_LARGEFILE		Low-level I/O supports large files.
+ 199:/usr/include/unistd.h ****    _LFS64_STDIO			Standard I/O supports large files.
+ 200:/usr/include/unistd.h ****    */
+ 201:/usr/include/unistd.h **** 
+ 202:/usr/include/unistd.h **** #include <bits/posix_opt.h>
+ 203:/usr/include/unistd.h **** 
+ 204:/usr/include/unistd.h **** /* Get the environment definitions from Unix98.  */
+ 205:/usr/include/unistd.h **** #if defined __USE_UNIX98 || defined __USE_XOPEN2K
+ 206:/usr/include/unistd.h **** # include <bits/environments.h>
+ 207:/usr/include/unistd.h **** #endif
+ 208:/usr/include/unistd.h **** 
+ 209:/usr/include/unistd.h **** /* Standard file descriptors.  */
+ 210:/usr/include/unistd.h **** #define	STDIN_FILENO	0	/* Standard input.  */
+ 211:/usr/include/unistd.h **** #define	STDOUT_FILENO	1	/* Standard output.  */
+ 212:/usr/include/unistd.h **** #define	STDERR_FILENO	2	/* Standard error output.  */
+ 213:/usr/include/unistd.h **** 
+ 214:/usr/include/unistd.h **** 
+ 215:/usr/include/unistd.h **** /* All functions that are not declared anywhere else.  */
+ 216:/usr/include/unistd.h **** 
+ 217:/usr/include/unistd.h **** #include <bits/types.h>
+ 218:/usr/include/unistd.h **** 
+ 219:/usr/include/unistd.h **** #ifndef	__ssize_t_defined
+ 220:/usr/include/unistd.h **** typedef __ssize_t ssize_t;
+ 221:/usr/include/unistd.h **** # define __ssize_t_defined
+ 222:/usr/include/unistd.h **** #endif
+ 223:/usr/include/unistd.h **** 
+ 224:/usr/include/unistd.h **** #define	__need_size_t
+ 225:/usr/include/unistd.h **** #define __need_NULL
+ 226:/usr/include/unistd.h **** #include <stddef.h>
+ 227:/usr/include/unistd.h **** 
+ 228:/usr/include/unistd.h **** #if defined __USE_XOPEN || defined __USE_XOPEN2K
+ 229:/usr/include/unistd.h **** /* The Single Unix specification says that some more types are
+ 230:/usr/include/unistd.h ****    available here.  */
+ 231:/usr/include/unistd.h **** # ifndef __gid_t_defined
+ 232:/usr/include/unistd.h **** typedef __gid_t gid_t;
+ 233:/usr/include/unistd.h **** #  define __gid_t_defined
+ 234:/usr/include/unistd.h **** # endif
+ 235:/usr/include/unistd.h **** 
+ 236:/usr/include/unistd.h **** # ifndef __uid_t_defined
+ 237:/usr/include/unistd.h **** typedef __uid_t uid_t;
+ 238:/usr/include/unistd.h **** #  define __uid_t_defined
+ 239:/usr/include/unistd.h **** # endif
+ 240:/usr/include/unistd.h **** 
+ 241:/usr/include/unistd.h **** # ifndef __off_t_defined
+ 242:/usr/include/unistd.h **** #  ifndef __USE_FILE_OFFSET64
+ 243:/usr/include/unistd.h **** typedef __off_t off_t;
+ 244:/usr/include/unistd.h **** #  else
+ 245:/usr/include/unistd.h **** typedef __off64_t off_t;
+ 246:/usr/include/unistd.h **** #  endif
+ 247:/usr/include/unistd.h **** #  define __off_t_defined
+ 248:/usr/include/unistd.h **** # endif
+ 249:/usr/include/unistd.h **** # if defined __USE_LARGEFILE64 && !defined __off64_t_defined
+ 250:/usr/include/unistd.h **** typedef __off64_t off64_t;
+ 251:/usr/include/unistd.h **** #  define __off64_t_defined
+ 252:/usr/include/unistd.h **** # endif
+ 253:/usr/include/unistd.h **** 
+ 254:/usr/include/unistd.h **** # ifndef __useconds_t_defined
+ 255:/usr/include/unistd.h **** typedef __useconds_t useconds_t;
+ 256:/usr/include/unistd.h **** #  define __useconds_t_defined
+ 257:/usr/include/unistd.h **** # endif
+ 258:/usr/include/unistd.h **** 
+ 259:/usr/include/unistd.h **** # ifndef __pid_t_defined
+ 260:/usr/include/unistd.h **** typedef __pid_t pid_t;
+ 261:/usr/include/unistd.h **** #  define __pid_t_defined
+ 262:/usr/include/unistd.h **** # endif
+ 263:/usr/include/unistd.h **** #endif	/* X/Open */
+ 264:/usr/include/unistd.h **** 
+ 265:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K
+ 266:/usr/include/unistd.h **** # ifndef __intptr_t_defined
+ 267:/usr/include/unistd.h **** typedef __intptr_t intptr_t;
+ 268:/usr/include/unistd.h **** #  define __intptr_t_defined
+ 269:/usr/include/unistd.h **** # endif
+ 270:/usr/include/unistd.h **** #endif
+ 271:/usr/include/unistd.h **** 
+ 272:/usr/include/unistd.h **** #if defined __USE_MISC || defined __USE_XOPEN
+ 273:/usr/include/unistd.h **** # ifndef __socklen_t_defined
+ 274:/usr/include/unistd.h **** typedef __socklen_t socklen_t;
+ 275:/usr/include/unistd.h **** #  define __socklen_t_defined
+ 276:/usr/include/unistd.h **** # endif
+ 277:/usr/include/unistd.h **** #endif
+ 278:/usr/include/unistd.h **** 
+ 279:/usr/include/unistd.h **** /* Values for the second argument to access.
+ 280:/usr/include/unistd.h ****    These may be OR'd together.  */
+ 281:/usr/include/unistd.h **** #define	R_OK	4		/* Test for read permission.  */
+ 282:/usr/include/unistd.h **** #define	W_OK	2		/* Test for write permission.  */
+ 283:/usr/include/unistd.h **** #define	X_OK	1		/* Test for execute permission.  */
+ 284:/usr/include/unistd.h **** #define	F_OK	0		/* Test for existence.  */
+ 285:/usr/include/unistd.h **** 
+ 286:/usr/include/unistd.h **** /* Test for access to NAME using the real UID and real GID.  */
+ 287:/usr/include/unistd.h **** extern int access (const char *__name, int __type) __THROW __nonnull ((1));
+ 288:/usr/include/unistd.h **** 
+ 289:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 290:/usr/include/unistd.h **** /* Test for access to NAME using the effective UID and GID
+ 291:/usr/include/unistd.h ****    (as normal file operations use).  */
+ 292:/usr/include/unistd.h **** extern int euidaccess (const char *__name, int __type)
+ 293:/usr/include/unistd.h ****      __THROW __nonnull ((1));
+ 294:/usr/include/unistd.h **** 
+ 295:/usr/include/unistd.h **** /* An alias for `euidaccess', used by some other systems.  */
+ 296:/usr/include/unistd.h **** extern int eaccess (const char *__name, int __type)
+ 297:/usr/include/unistd.h ****      __THROW __nonnull ((1));
+ 298:/usr/include/unistd.h **** #endif
+ 299:/usr/include/unistd.h **** 
+ 300:/usr/include/unistd.h **** #ifdef __USE_ATFILE
+ 301:/usr/include/unistd.h **** /* Test for access to FILE relative to the directory FD is open on.
+ 302:/usr/include/unistd.h ****    If AT_EACCESS is set in FLAG, then use effective IDs like `eaccess',
+ 303:/usr/include/unistd.h ****    otherwise use real IDs like `access'.  */
+ 304:/usr/include/unistd.h **** extern int faccessat (int __fd, const char *__file, int __type, int __flag)
+ 305:/usr/include/unistd.h ****      __THROW __nonnull ((2)) __wur;
+ 306:/usr/include/unistd.h **** #endif /* Use GNU.  */
+ 307:/usr/include/unistd.h **** 
+ 308:/usr/include/unistd.h **** 
+ 309:/usr/include/unistd.h **** /* Values for the WHENCE argument to lseek.  */
+ 310:/usr/include/unistd.h **** #ifndef	_STDIO_H		/* <stdio.h> has the same definitions.  */
+ 311:/usr/include/unistd.h **** # define SEEK_SET	0	/* Seek from beginning of file.  */
+ 312:/usr/include/unistd.h **** # define SEEK_CUR	1	/* Seek from current position.  */
+ 313:/usr/include/unistd.h **** # define SEEK_END	2	/* Seek from end of file.  */
+ 314:/usr/include/unistd.h **** # ifdef __USE_GNU
+ 315:/usr/include/unistd.h **** #  define SEEK_DATA	3	/* Seek to next data.  */
+ 316:/usr/include/unistd.h **** #  define SEEK_HOLE	4	/* Seek to next hole.  */
+ 317:/usr/include/unistd.h **** # endif
+ 318:/usr/include/unistd.h **** #endif
+ 319:/usr/include/unistd.h **** 
+ 320:/usr/include/unistd.h **** #if defined __USE_MISC && !defined L_SET
+ 321:/usr/include/unistd.h **** /* Old BSD names for the same constants; just for compatibility.  */
+ 322:/usr/include/unistd.h **** # define L_SET		SEEK_SET
+ 323:/usr/include/unistd.h **** # define L_INCR		SEEK_CUR
+ 324:/usr/include/unistd.h **** # define L_XTND		SEEK_END
+ 325:/usr/include/unistd.h **** #endif
+ 326:/usr/include/unistd.h **** 
+ 327:/usr/include/unistd.h **** 
+ 328:/usr/include/unistd.h **** /* Move FD's file position to OFFSET bytes from the
+ 329:/usr/include/unistd.h ****    beginning of the file (if WHENCE is SEEK_SET),
+ 330:/usr/include/unistd.h ****    the current position (if WHENCE is SEEK_CUR),
+ 331:/usr/include/unistd.h ****    or the end of the file (if WHENCE is SEEK_END).
+ 332:/usr/include/unistd.h ****    Return the new file position.  */
+ 333:/usr/include/unistd.h **** #ifndef __USE_FILE_OFFSET64
+ 334:/usr/include/unistd.h **** extern __off_t lseek (int __fd, __off_t __offset, int __whence) __THROW;
+ 335:/usr/include/unistd.h **** #else
+ 336:/usr/include/unistd.h **** # ifdef __REDIRECT_NTH
+ 337:/usr/include/unistd.h **** extern __off64_t __REDIRECT_NTH (lseek,
+ 338:/usr/include/unistd.h **** 				 (int __fd, __off64_t __offset, int __whence),
+ 339:/usr/include/unistd.h **** 				 lseek64);
+ 340:/usr/include/unistd.h **** # else
+ 341:/usr/include/unistd.h **** #  define lseek lseek64
+ 342:/usr/include/unistd.h **** # endif
+ 343:/usr/include/unistd.h **** #endif
+ 344:/usr/include/unistd.h **** #ifdef __USE_LARGEFILE64
+ 345:/usr/include/unistd.h **** extern __off64_t lseek64 (int __fd, __off64_t __offset, int __whence)
+ 346:/usr/include/unistd.h ****      __THROW;
+ 347:/usr/include/unistd.h **** #endif
+ 348:/usr/include/unistd.h **** 
+ 349:/usr/include/unistd.h **** /* Close the file descriptor FD.
+ 350:/usr/include/unistd.h **** 
+ 351:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 352:/usr/include/unistd.h ****    __THROW.  */
+ 353:/usr/include/unistd.h **** extern int close (int __fd);
+ 354:/usr/include/unistd.h **** 
+ 355:/usr/include/unistd.h **** /* Read NBYTES into BUF from FD.  Return the
+ 356:/usr/include/unistd.h ****    number read, -1 for errors or 0 for EOF.
+ 357:/usr/include/unistd.h **** 
+ 358:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 359:/usr/include/unistd.h ****    __THROW.  */
+ 360:/usr/include/unistd.h **** extern ssize_t read (int __fd, void *__buf, size_t __nbytes) __wur;
+ 361:/usr/include/unistd.h **** 
+ 362:/usr/include/unistd.h **** /* Write N bytes of BUF to FD.  Return the number written, or -1.
+ 363:/usr/include/unistd.h **** 
+ 364:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 365:/usr/include/unistd.h ****    __THROW.  */
+ 366:/usr/include/unistd.h **** extern ssize_t write (int __fd, const void *__buf, size_t __n) __wur;
+ 367:/usr/include/unistd.h **** 
+ 368:/usr/include/unistd.h **** #if defined __USE_UNIX98 || defined __USE_XOPEN2K8
+ 369:/usr/include/unistd.h **** # ifndef __USE_FILE_OFFSET64
+ 370:/usr/include/unistd.h **** /* Read NBYTES into BUF from FD at the given position OFFSET without
+ 371:/usr/include/unistd.h ****    changing the file pointer.  Return the number read, -1 for errors
+ 372:/usr/include/unistd.h ****    or 0 for EOF.
+ 373:/usr/include/unistd.h **** 
+ 374:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 375:/usr/include/unistd.h ****    __THROW.  */
+ 376:/usr/include/unistd.h **** extern ssize_t pread (int __fd, void *__buf, size_t __nbytes,
+ 377:/usr/include/unistd.h **** 		      __off_t __offset) __wur;
+ 378:/usr/include/unistd.h **** 
+ 379:/usr/include/unistd.h **** /* Write N bytes of BUF to FD at the given position OFFSET without
+ 380:/usr/include/unistd.h ****    changing the file pointer.  Return the number written, or -1.
+ 381:/usr/include/unistd.h **** 
+ 382:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 383:/usr/include/unistd.h ****    __THROW.  */
+ 384:/usr/include/unistd.h **** extern ssize_t pwrite (int __fd, const void *__buf, size_t __n,
+ 385:/usr/include/unistd.h **** 		       __off_t __offset) __wur;
+ 386:/usr/include/unistd.h **** # else
+ 387:/usr/include/unistd.h **** #  ifdef __REDIRECT
+ 388:/usr/include/unistd.h **** extern ssize_t __REDIRECT (pread, (int __fd, void *__buf, size_t __nbytes,
+ 389:/usr/include/unistd.h **** 				   __off64_t __offset),
+ 390:/usr/include/unistd.h **** 			   pread64) __wur;
+ 391:/usr/include/unistd.h **** extern ssize_t __REDIRECT (pwrite, (int __fd, const void *__buf,
+ 392:/usr/include/unistd.h **** 				    size_t __nbytes, __off64_t __offset),
+ 393:/usr/include/unistd.h **** 			   pwrite64) __wur;
+ 394:/usr/include/unistd.h **** #  else
+ 395:/usr/include/unistd.h **** #   define pread pread64
+ 396:/usr/include/unistd.h **** #   define pwrite pwrite64
+ 397:/usr/include/unistd.h **** #  endif
+ 398:/usr/include/unistd.h **** # endif
+ 399:/usr/include/unistd.h **** 
+ 400:/usr/include/unistd.h **** # ifdef __USE_LARGEFILE64
+ 401:/usr/include/unistd.h **** /* Read NBYTES into BUF from FD at the given position OFFSET without
+ 402:/usr/include/unistd.h ****    changing the file pointer.  Return the number read, -1 for errors
+ 403:/usr/include/unistd.h ****    or 0 for EOF.  */
+ 404:/usr/include/unistd.h **** extern ssize_t pread64 (int __fd, void *__buf, size_t __nbytes,
+ 405:/usr/include/unistd.h **** 			__off64_t __offset) __wur;
+ 406:/usr/include/unistd.h **** /* Write N bytes of BUF to FD at the given position OFFSET without
+ 407:/usr/include/unistd.h ****    changing the file pointer.  Return the number written, or -1.  */
+ 408:/usr/include/unistd.h **** extern ssize_t pwrite64 (int __fd, const void *__buf, size_t __n,
+ 409:/usr/include/unistd.h **** 			 __off64_t __offset) __wur;
+ 410:/usr/include/unistd.h **** # endif
+ 411:/usr/include/unistd.h **** #endif
+ 412:/usr/include/unistd.h **** 
+ 413:/usr/include/unistd.h **** /* Create a one-way communication channel (pipe).
+ 414:/usr/include/unistd.h ****    If successful, two file descriptors are stored in PIPEDES;
+ 415:/usr/include/unistd.h ****    bytes written on PIPEDES[1] can be read from PIPEDES[0].
+ 416:/usr/include/unistd.h ****    Returns 0 if successful, -1 if not.  */
+ 417:/usr/include/unistd.h **** extern int pipe (int __pipedes[2]) __THROW __wur;
+ 418:/usr/include/unistd.h **** 
+ 419:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 420:/usr/include/unistd.h **** /* Same as pipe but apply flags passed in FLAGS to the new file
+ 421:/usr/include/unistd.h ****    descriptors.  */
+ 422:/usr/include/unistd.h **** extern int pipe2 (int __pipedes[2], int __flags) __THROW __wur;
+ 423:/usr/include/unistd.h **** #endif
+ 424:/usr/include/unistd.h **** 
+ 425:/usr/include/unistd.h **** /* Schedule an alarm.  In SECONDS seconds, the process will get a SIGALRM.
+ 426:/usr/include/unistd.h ****    If SECONDS is zero, any currently scheduled alarm will be cancelled.
+ 427:/usr/include/unistd.h ****    The function returns the number of seconds remaining until the last
+ 428:/usr/include/unistd.h ****    alarm scheduled would have signaled, or zero if there wasn't one.
+ 429:/usr/include/unistd.h ****    There is no return value to indicate an error, but you can set `errno'
+ 430:/usr/include/unistd.h ****    to 0 and check its value after calling `alarm', and this might tell you.
+ 431:/usr/include/unistd.h ****    The signal may come late due to processor scheduling.  */
+ 432:/usr/include/unistd.h **** extern unsigned int alarm (unsigned int __seconds) __THROW;
+ 433:/usr/include/unistd.h **** 
+ 434:/usr/include/unistd.h **** /* Make the process sleep for SECONDS seconds, or until a signal arrives
+ 435:/usr/include/unistd.h ****    and is not ignored.  The function returns the number of seconds less
+ 436:/usr/include/unistd.h ****    than SECONDS which it actually slept (thus zero if it slept the full time).
+ 437:/usr/include/unistd.h ****    If a signal handler does a `longjmp' or modifies the handling of the
+ 438:/usr/include/unistd.h ****    SIGALRM signal while inside `sleep' call, the handling of the SIGALRM
+ 439:/usr/include/unistd.h ****    signal afterwards is undefined.  There is no return value to indicate
+ 440:/usr/include/unistd.h ****    error, but if `sleep' returns SECONDS, it probably didn't work.
+ 441:/usr/include/unistd.h **** 
+ 442:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 443:/usr/include/unistd.h ****    __THROW.  */
+ 444:/usr/include/unistd.h **** extern unsigned int sleep (unsigned int __seconds);
+ 445:/usr/include/unistd.h **** 
+ 446:/usr/include/unistd.h **** #if (defined __USE_XOPEN_EXTENDED && !defined __USE_XOPEN2K8) \
+ 447:/usr/include/unistd.h ****     || defined __USE_MISC
+ 448:/usr/include/unistd.h **** /* Set an alarm to go off (generating a SIGALRM signal) in VALUE
+ 449:/usr/include/unistd.h ****    microseconds.  If INTERVAL is nonzero, when the alarm goes off, the
+ 450:/usr/include/unistd.h ****    timer is reset to go off every INTERVAL microseconds thereafter.
+ 451:/usr/include/unistd.h ****    Returns the number of microseconds remaining before the alarm.  */
+ 452:/usr/include/unistd.h **** extern __useconds_t ualarm (__useconds_t __value, __useconds_t __interval)
+ 453:/usr/include/unistd.h ****      __THROW;
+ 454:/usr/include/unistd.h **** 
+ 455:/usr/include/unistd.h **** /* Sleep USECONDS microseconds, or until a signal arrives that is not blocked
+ 456:/usr/include/unistd.h ****    or ignored.
+ 457:/usr/include/unistd.h **** 
+ 458:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 459:/usr/include/unistd.h ****    __THROW.  */
+ 460:/usr/include/unistd.h **** extern int usleep (__useconds_t __useconds);
+ 461:/usr/include/unistd.h **** #endif
+ 462:/usr/include/unistd.h **** 
+ 463:/usr/include/unistd.h **** 
+ 464:/usr/include/unistd.h **** /* Suspend the process until a signal arrives.
+ 465:/usr/include/unistd.h ****    This always returns -1 and sets `errno' to EINTR.
+ 466:/usr/include/unistd.h **** 
+ 467:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 468:/usr/include/unistd.h ****    __THROW.  */
+ 469:/usr/include/unistd.h **** extern int pause (void);
+ 470:/usr/include/unistd.h **** 
+ 471:/usr/include/unistd.h **** 
+ 472:/usr/include/unistd.h **** /* Change the owner and group of FILE.  */
+ 473:/usr/include/unistd.h **** extern int chown (const char *__file, __uid_t __owner, __gid_t __group)
+ 474:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+ 475:/usr/include/unistd.h **** 
+ 476:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K8
+ 477:/usr/include/unistd.h **** /* Change the owner and group of the file that FD is open on.  */
+ 478:/usr/include/unistd.h **** extern int fchown (int __fd, __uid_t __owner, __gid_t __group) __THROW __wur;
+ 479:/usr/include/unistd.h **** 
+ 480:/usr/include/unistd.h **** 
+ 481:/usr/include/unistd.h **** /* Change owner and group of FILE, if it is a symbolic
+ 482:/usr/include/unistd.h ****    link the ownership of the symbolic link is changed.  */
+ 483:/usr/include/unistd.h **** extern int lchown (const char *__file, __uid_t __owner, __gid_t __group)
+ 484:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+ 485:/usr/include/unistd.h **** 
+ 486:/usr/include/unistd.h **** #endif /* Use X/Open Unix.  */
+ 487:/usr/include/unistd.h **** 
+ 488:/usr/include/unistd.h **** #ifdef __USE_ATFILE
+ 489:/usr/include/unistd.h **** /* Change the owner and group of FILE relative to the directory FD is open
+ 490:/usr/include/unistd.h ****    on.  */
+ 491:/usr/include/unistd.h **** extern int fchownat (int __fd, const char *__file, __uid_t __owner,
+ 492:/usr/include/unistd.h **** 		     __gid_t __group, int __flag)
+ 493:/usr/include/unistd.h ****      __THROW __nonnull ((2)) __wur;
+ 494:/usr/include/unistd.h **** #endif /* Use GNU.  */
+ 495:/usr/include/unistd.h **** 
+ 496:/usr/include/unistd.h **** /* Change the process's working directory to PATH.  */
+ 497:/usr/include/unistd.h **** extern int chdir (const char *__path) __THROW __nonnull ((1)) __wur;
+ 498:/usr/include/unistd.h **** 
+ 499:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K8
+ 500:/usr/include/unistd.h **** /* Change the process's working directory to the one FD is open on.  */
+ 501:/usr/include/unistd.h **** extern int fchdir (int __fd) __THROW __wur;
+ 502:/usr/include/unistd.h **** #endif
+ 503:/usr/include/unistd.h **** 
+ 504:/usr/include/unistd.h **** /* Get the pathname of the current working directory,
+ 505:/usr/include/unistd.h ****    and put it in SIZE bytes of BUF.  Returns NULL if the
+ 506:/usr/include/unistd.h ****    directory couldn't be determined or SIZE was too small.
+ 507:/usr/include/unistd.h ****    If successful, returns BUF.  In GNU, if BUF is NULL,
+ 508:/usr/include/unistd.h ****    an array is allocated with `malloc'; the array is SIZE
+ 509:/usr/include/unistd.h ****    bytes long, unless SIZE == 0, in which case it is as
+ 510:/usr/include/unistd.h ****    big as necessary.  */
+ 511:/usr/include/unistd.h **** extern char *getcwd (char *__buf, size_t __size) __THROW __wur;
+ 512:/usr/include/unistd.h **** 
+ 513:/usr/include/unistd.h **** #ifdef	__USE_GNU
+ 514:/usr/include/unistd.h **** /* Return a malloc'd string containing the current directory name.
+ 515:/usr/include/unistd.h ****    If the environment variable `PWD' is set, and its value is correct,
+ 516:/usr/include/unistd.h ****    that value is used.  */
+ 517:/usr/include/unistd.h **** extern char *get_current_dir_name (void) __THROW;
+ 518:/usr/include/unistd.h **** #endif
+ 519:/usr/include/unistd.h **** 
+ 520:/usr/include/unistd.h **** #if (defined __USE_XOPEN_EXTENDED && !defined __USE_XOPEN2K8) \
+ 521:/usr/include/unistd.h ****     || defined __USE_MISC
+ 522:/usr/include/unistd.h **** /* Put the absolute pathname of the current working directory in BUF.
+ 523:/usr/include/unistd.h ****    If successful, return BUF.  If not, put an error message in
+ 524:/usr/include/unistd.h ****    BUF and return NULL.  BUF should be at least PATH_MAX bytes long.  */
+ 525:/usr/include/unistd.h **** extern char *getwd (char *__buf)
+ 526:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __attribute_deprecated__ __wur;
+ 527:/usr/include/unistd.h **** #endif
+ 528:/usr/include/unistd.h **** 
+ 529:/usr/include/unistd.h **** 
+ 530:/usr/include/unistd.h **** /* Duplicate FD, returning a new file descriptor on the same file.  */
+ 531:/usr/include/unistd.h **** extern int dup (int __fd) __THROW __wur;
+ 532:/usr/include/unistd.h **** 
+ 533:/usr/include/unistd.h **** /* Duplicate FD to FD2, closing FD2 and making it open on the same file.  */
+ 534:/usr/include/unistd.h **** extern int dup2 (int __fd, int __fd2) __THROW;
+ 535:/usr/include/unistd.h **** 
+ 536:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 537:/usr/include/unistd.h **** /* Duplicate FD to FD2, closing FD2 and making it open on the same
+ 538:/usr/include/unistd.h ****    file while setting flags according to FLAGS.  */
+ 539:/usr/include/unistd.h **** extern int dup3 (int __fd, int __fd2, int __flags) __THROW;
+ 540:/usr/include/unistd.h **** #endif
+ 541:/usr/include/unistd.h **** 
+ 542:/usr/include/unistd.h **** /* NULL-terminated array of "NAME=VALUE" environment variables.  */
+ 543:/usr/include/unistd.h **** extern char **__environ;
+ 544:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 545:/usr/include/unistd.h **** extern char **environ;
+ 546:/usr/include/unistd.h **** #endif
+ 547:/usr/include/unistd.h **** 
+ 548:/usr/include/unistd.h **** 
+ 549:/usr/include/unistd.h **** /* Replace the current process, executing PATH with arguments ARGV and
+ 550:/usr/include/unistd.h ****    environment ENVP.  ARGV and ENVP are terminated by NULL pointers.  */
+ 551:/usr/include/unistd.h **** extern int execve (const char *__path, char *const __argv[],
+ 552:/usr/include/unistd.h **** 		   char *const __envp[]) __THROW __nonnull ((1, 2));
+ 553:/usr/include/unistd.h **** 
+ 554:/usr/include/unistd.h **** #ifdef __USE_XOPEN2K8
+ 555:/usr/include/unistd.h **** /* Execute the file FD refers to, overlaying the running program image.
+ 556:/usr/include/unistd.h ****    ARGV and ENVP are passed to the new program, as for `execve'.  */
+ 557:/usr/include/unistd.h **** extern int fexecve (int __fd, char *const __argv[], char *const __envp[])
+ 558:/usr/include/unistd.h ****      __THROW __nonnull ((2));
+ 559:/usr/include/unistd.h **** #endif
+ 560:/usr/include/unistd.h **** 
+ 561:/usr/include/unistd.h **** 
+ 562:/usr/include/unistd.h **** /* Execute PATH with arguments ARGV and environment from `environ'.  */
+ 563:/usr/include/unistd.h **** extern int execv (const char *__path, char *const __argv[])
+ 564:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+ 565:/usr/include/unistd.h **** 
+ 566:/usr/include/unistd.h **** /* Execute PATH with all arguments after PATH until a NULL pointer,
+ 567:/usr/include/unistd.h ****    and the argument after that for environment.  */
+ 568:/usr/include/unistd.h **** extern int execle (const char *__path, const char *__arg, ...)
+ 569:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+ 570:/usr/include/unistd.h **** 
+ 571:/usr/include/unistd.h **** /* Execute PATH with all arguments after PATH until
+ 572:/usr/include/unistd.h ****    a NULL pointer and environment from `environ'.  */
+ 573:/usr/include/unistd.h **** extern int execl (const char *__path, const char *__arg, ...)
+ 574:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+ 575:/usr/include/unistd.h **** 
+ 576:/usr/include/unistd.h **** /* Execute FILE, searching in the `PATH' environment variable if it contains
+ 577:/usr/include/unistd.h ****    no slashes, with arguments ARGV and environment from `environ'.  */
+ 578:/usr/include/unistd.h **** extern int execvp (const char *__file, char *const __argv[])
+ 579:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+ 580:/usr/include/unistd.h **** 
+ 581:/usr/include/unistd.h **** /* Execute FILE, searching in the `PATH' environment variable if
+ 582:/usr/include/unistd.h ****    it contains no slashes, with all arguments after FILE until a
+ 583:/usr/include/unistd.h ****    NULL pointer and environment from `environ'.  */
+ 584:/usr/include/unistd.h **** extern int execlp (const char *__file, const char *__arg, ...)
+ 585:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+ 586:/usr/include/unistd.h **** 
+ 587:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 588:/usr/include/unistd.h **** /* Execute FILE, searching in the `PATH' environment variable if it contains
+ 589:/usr/include/unistd.h ****    no slashes, with arguments ARGV and environment from `environ'.  */
+ 590:/usr/include/unistd.h **** extern int execvpe (const char *__file, char *const __argv[],
+ 591:/usr/include/unistd.h **** 		    char *const __envp[])
+ 592:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+ 593:/usr/include/unistd.h **** #endif
+ 594:/usr/include/unistd.h **** 
+ 595:/usr/include/unistd.h **** 
+ 596:/usr/include/unistd.h **** #if defined __USE_MISC || defined __USE_XOPEN
+ 597:/usr/include/unistd.h **** /* Add INC to priority of the current process.  */
+ 598:/usr/include/unistd.h **** extern int nice (int __inc) __THROW __wur;
+ 599:/usr/include/unistd.h **** #endif
+ 600:/usr/include/unistd.h **** 
+ 601:/usr/include/unistd.h **** 
+ 602:/usr/include/unistd.h **** /* Terminate program execution with the low-order 8 bits of STATUS.  */
+ 603:/usr/include/unistd.h **** extern void _exit (int __status) __attribute__ ((__noreturn__));
+ 604:/usr/include/unistd.h **** 
+ 605:/usr/include/unistd.h **** 
+ 606:/usr/include/unistd.h **** /* Get the `_PC_*' symbols for the NAME argument to `pathconf' and `fpathconf';
+ 607:/usr/include/unistd.h ****    the `_SC_*' symbols for the NAME argument to `sysconf';
+ 608:/usr/include/unistd.h ****    and the `_CS_*' symbols for the NAME argument to `confstr'.  */
+ 609:/usr/include/unistd.h **** #include <bits/confname.h>
+ 610:/usr/include/unistd.h **** 
+ 611:/usr/include/unistd.h **** /* Get file-specific configuration information about PATH.  */
+ 612:/usr/include/unistd.h **** extern long int pathconf (const char *__path, int __name)
+ 613:/usr/include/unistd.h ****      __THROW __nonnull ((1));
+ 614:/usr/include/unistd.h **** 
+ 615:/usr/include/unistd.h **** /* Get file-specific configuration about descriptor FD.  */
+ 616:/usr/include/unistd.h **** extern long int fpathconf (int __fd, int __name) __THROW;
+ 617:/usr/include/unistd.h **** 
+ 618:/usr/include/unistd.h **** /* Get the value of the system variable NAME.  */
+ 619:/usr/include/unistd.h **** extern long int sysconf (int __name) __THROW;
+ 620:/usr/include/unistd.h **** 
+ 621:/usr/include/unistd.h **** #ifdef	__USE_POSIX2
+ 622:/usr/include/unistd.h **** /* Get the value of the string-valued system variable NAME.  */
+ 623:/usr/include/unistd.h **** extern size_t confstr (int __name, char *__buf, size_t __len) __THROW;
+ 624:/usr/include/unistd.h **** #endif
+ 625:/usr/include/unistd.h **** 
+ 626:/usr/include/unistd.h **** 
+ 627:/usr/include/unistd.h **** /* Get the process ID of the calling process.  */
+ 628:/usr/include/unistd.h **** extern __pid_t getpid (void) __THROW;
+ 629:/usr/include/unistd.h **** 
+ 630:/usr/include/unistd.h **** /* Get the process ID of the calling process's parent.  */
+ 631:/usr/include/unistd.h **** extern __pid_t getppid (void) __THROW;
+ 632:/usr/include/unistd.h **** 
+ 633:/usr/include/unistd.h **** /* Get the process group ID of the calling process.  */
+ 634:/usr/include/unistd.h **** extern __pid_t getpgrp (void) __THROW;
+ 635:/usr/include/unistd.h **** 
+ 636:/usr/include/unistd.h **** /* Get the process group ID of process PID.  */
+ 637:/usr/include/unistd.h **** extern __pid_t __getpgid (__pid_t __pid) __THROW;
+ 638:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K8
+ 639:/usr/include/unistd.h **** extern __pid_t getpgid (__pid_t __pid) __THROW;
+ 640:/usr/include/unistd.h **** #endif
+ 641:/usr/include/unistd.h **** 
+ 642:/usr/include/unistd.h **** 
+ 643:/usr/include/unistd.h **** /* Set the process group ID of the process matching PID to PGID.
+ 644:/usr/include/unistd.h ****    If PID is zero, the current process's process group ID is set.
+ 645:/usr/include/unistd.h ****    If PGID is zero, the process ID of the process is used.  */
+ 646:/usr/include/unistd.h **** extern int setpgid (__pid_t __pid, __pid_t __pgid) __THROW;
+ 647:/usr/include/unistd.h **** 
+ 648:/usr/include/unistd.h **** #if defined __USE_MISC || defined __USE_XOPEN_EXTENDED
+ 649:/usr/include/unistd.h **** /* Both System V and BSD have `setpgrp' functions, but with different
+ 650:/usr/include/unistd.h ****    calling conventions.  The BSD function is the same as POSIX.1 `setpgid'
+ 651:/usr/include/unistd.h ****    (above).  The System V function takes no arguments and puts the calling
+ 652:/usr/include/unistd.h ****    process in its on group like `setpgid (0, 0)'.
+ 653:/usr/include/unistd.h **** 
+ 654:/usr/include/unistd.h ****    New programs should always use `setpgid' instead.
+ 655:/usr/include/unistd.h **** 
+ 656:/usr/include/unistd.h ****    GNU provides the POSIX.1 function.  */
+ 657:/usr/include/unistd.h **** 
+ 658:/usr/include/unistd.h **** /* Set the process group ID of the calling process to its own PID.
+ 659:/usr/include/unistd.h ****    This is exactly the same as `setpgid (0, 0)'.  */
+ 660:/usr/include/unistd.h **** extern int setpgrp (void) __THROW;
+ 661:/usr/include/unistd.h **** 
+ 662:/usr/include/unistd.h **** #endif	/* Use misc or X/Open.  */
+ 663:/usr/include/unistd.h **** 
+ 664:/usr/include/unistd.h **** /* Create a new session with the calling process as its leader.
+ 665:/usr/include/unistd.h ****    The process group IDs of the session and the calling process
+ 666:/usr/include/unistd.h ****    are set to the process ID of the calling process, which is returned.  */
+ 667:/usr/include/unistd.h **** extern __pid_t setsid (void) __THROW;
+ 668:/usr/include/unistd.h **** 
+ 669:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K8
+ 670:/usr/include/unistd.h **** /* Return the session ID of the given process.  */
+ 671:/usr/include/unistd.h **** extern __pid_t getsid (__pid_t __pid) __THROW;
+ 672:/usr/include/unistd.h **** #endif
+ 673:/usr/include/unistd.h **** 
+ 674:/usr/include/unistd.h **** /* Get the real user ID of the calling process.  */
+ 675:/usr/include/unistd.h **** extern __uid_t getuid (void) __THROW;
+ 676:/usr/include/unistd.h **** 
+ 677:/usr/include/unistd.h **** /* Get the effective user ID of the calling process.  */
+ 678:/usr/include/unistd.h **** extern __uid_t geteuid (void) __THROW;
+ 679:/usr/include/unistd.h **** 
+ 680:/usr/include/unistd.h **** /* Get the real group ID of the calling process.  */
+ 681:/usr/include/unistd.h **** extern __gid_t getgid (void) __THROW;
+ 682:/usr/include/unistd.h **** 
+ 683:/usr/include/unistd.h **** /* Get the effective group ID of the calling process.  */
+ 684:/usr/include/unistd.h **** extern __gid_t getegid (void) __THROW;
+ 685:/usr/include/unistd.h **** 
+ 686:/usr/include/unistd.h **** /* If SIZE is zero, return the number of supplementary groups
+ 687:/usr/include/unistd.h ****    the calling process is in.  Otherwise, fill in the group IDs
+ 688:/usr/include/unistd.h ****    of its supplementary groups in LIST and return the number written.  */
+ 689:/usr/include/unistd.h **** extern int getgroups (int __size, __gid_t __list[]) __THROW __wur;
+ 690:/usr/include/unistd.h **** 
+ 691:/usr/include/unistd.h **** #ifdef	__USE_GNU
+ 692:/usr/include/unistd.h **** /* Return nonzero iff the calling process is in group GID.  */
+ 693:/usr/include/unistd.h **** extern int group_member (__gid_t __gid) __THROW;
+ 694:/usr/include/unistd.h **** #endif
+ 695:/usr/include/unistd.h **** 
+ 696:/usr/include/unistd.h **** /* Set the user ID of the calling process to UID.
+ 697:/usr/include/unistd.h ****    If the calling process is the super-user, set the real
+ 698:/usr/include/unistd.h ****    and effective user IDs, and the saved set-user-ID to UID;
+ 699:/usr/include/unistd.h ****    if not, the effective user ID is set to UID.  */
+ 700:/usr/include/unistd.h **** extern int setuid (__uid_t __uid) __THROW __wur;
+ 701:/usr/include/unistd.h **** 
+ 702:/usr/include/unistd.h **** #if defined __USE_MISC || defined __USE_XOPEN_EXTENDED
+ 703:/usr/include/unistd.h **** /* Set the real user ID of the calling process to RUID,
+ 704:/usr/include/unistd.h ****    and the effective user ID of the calling process to EUID.  */
+ 705:/usr/include/unistd.h **** extern int setreuid (__uid_t __ruid, __uid_t __euid) __THROW __wur;
+ 706:/usr/include/unistd.h **** #endif
+ 707:/usr/include/unistd.h **** 
+ 708:/usr/include/unistd.h **** #ifdef __USE_XOPEN2K
+ 709:/usr/include/unistd.h **** /* Set the effective user ID of the calling process to UID.  */
+ 710:/usr/include/unistd.h **** extern int seteuid (__uid_t __uid) __THROW __wur;
+ 711:/usr/include/unistd.h **** #endif /* Use POSIX.1-2001.  */
+ 712:/usr/include/unistd.h **** 
+ 713:/usr/include/unistd.h **** /* Set the group ID of the calling process to GID.
+ 714:/usr/include/unistd.h ****    If the calling process is the super-user, set the real
+ 715:/usr/include/unistd.h ****    and effective group IDs, and the saved set-group-ID to GID;
+ 716:/usr/include/unistd.h ****    if not, the effective group ID is set to GID.  */
+ 717:/usr/include/unistd.h **** extern int setgid (__gid_t __gid) __THROW __wur;
+ 718:/usr/include/unistd.h **** 
+ 719:/usr/include/unistd.h **** #if defined __USE_MISC || defined __USE_XOPEN_EXTENDED
+ 720:/usr/include/unistd.h **** /* Set the real group ID of the calling process to RGID,
+ 721:/usr/include/unistd.h ****    and the effective group ID of the calling process to EGID.  */
+ 722:/usr/include/unistd.h **** extern int setregid (__gid_t __rgid, __gid_t __egid) __THROW __wur;
+ 723:/usr/include/unistd.h **** #endif
+ 724:/usr/include/unistd.h **** 
+ 725:/usr/include/unistd.h **** #ifdef __USE_XOPEN2K
+ 726:/usr/include/unistd.h **** /* Set the effective group ID of the calling process to GID.  */
+ 727:/usr/include/unistd.h **** extern int setegid (__gid_t __gid) __THROW __wur;
+ 728:/usr/include/unistd.h **** #endif /* Use POSIX.1-2001.  */
+ 729:/usr/include/unistd.h **** 
+ 730:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 731:/usr/include/unistd.h **** /* Fetch the real user ID, effective user ID, and saved-set user ID,
+ 732:/usr/include/unistd.h ****    of the calling process.  */
+ 733:/usr/include/unistd.h **** extern int getresuid (__uid_t *__ruid, __uid_t *__euid, __uid_t *__suid)
+ 734:/usr/include/unistd.h ****      __THROW;
+ 735:/usr/include/unistd.h **** 
+ 736:/usr/include/unistd.h **** /* Fetch the real group ID, effective group ID, and saved-set group ID,
+ 737:/usr/include/unistd.h ****    of the calling process.  */
+ 738:/usr/include/unistd.h **** extern int getresgid (__gid_t *__rgid, __gid_t *__egid, __gid_t *__sgid)
+ 739:/usr/include/unistd.h ****      __THROW;
+ 740:/usr/include/unistd.h **** 
+ 741:/usr/include/unistd.h **** /* Set the real user ID, effective user ID, and saved-set user ID,
+ 742:/usr/include/unistd.h ****    of the calling process to RUID, EUID, and SUID, respectively.  */
+ 743:/usr/include/unistd.h **** extern int setresuid (__uid_t __ruid, __uid_t __euid, __uid_t __suid)
+ 744:/usr/include/unistd.h ****      __THROW __wur;
+ 745:/usr/include/unistd.h **** 
+ 746:/usr/include/unistd.h **** /* Set the real group ID, effective group ID, and saved-set group ID,
+ 747:/usr/include/unistd.h ****    of the calling process to RGID, EGID, and SGID, respectively.  */
+ 748:/usr/include/unistd.h **** extern int setresgid (__gid_t __rgid, __gid_t __egid, __gid_t __sgid)
+ 749:/usr/include/unistd.h ****      __THROW __wur;
+ 750:/usr/include/unistd.h **** #endif
+ 751:/usr/include/unistd.h **** 
+ 752:/usr/include/unistd.h **** 
+ 753:/usr/include/unistd.h **** /* Clone the calling process, creating an exact copy.
+ 754:/usr/include/unistd.h ****    Return -1 for errors, 0 to the new process,
+ 755:/usr/include/unistd.h ****    and the process ID of the new process to the old process.  */
+ 756:/usr/include/unistd.h **** extern __pid_t fork (void) __THROWNL;
+ 757:/usr/include/unistd.h **** 
+ 758:/usr/include/unistd.h **** #if (defined __USE_XOPEN_EXTENDED && !defined __USE_XOPEN2K8) \
+ 759:/usr/include/unistd.h ****     || defined __USE_MISC
+ 760:/usr/include/unistd.h **** /* Clone the calling process, but without copying the whole address space.
+ 761:/usr/include/unistd.h ****    The calling process is suspended until the new process exits or is
+ 762:/usr/include/unistd.h ****    replaced by a call to `execve'.  Return -1 for errors, 0 to the new process,
+ 763:/usr/include/unistd.h ****    and the process ID of the new process to the old process.  */
+ 764:/usr/include/unistd.h **** extern __pid_t vfork (void) __THROW;
+ 765:/usr/include/unistd.h **** #endif /* Use misc or XPG < 7. */
+ 766:/usr/include/unistd.h **** 
+ 767:/usr/include/unistd.h **** 
+ 768:/usr/include/unistd.h **** /* Return the pathname of the terminal FD is open on, or NULL on errors.
+ 769:/usr/include/unistd.h ****    The returned storage is good only until the next call to this function.  */
+ 770:/usr/include/unistd.h **** extern char *ttyname (int __fd) __THROW;
+ 771:/usr/include/unistd.h **** 
+ 772:/usr/include/unistd.h **** /* Store at most BUFLEN characters of the pathname of the terminal FD is
+ 773:/usr/include/unistd.h ****    open on in BUF.  Return 0 on success, otherwise an error number.  */
+ 774:/usr/include/unistd.h **** extern int ttyname_r (int __fd, char *__buf, size_t __buflen)
+ 775:/usr/include/unistd.h ****      __THROW __nonnull ((2)) __wur;
+ 776:/usr/include/unistd.h **** 
+ 777:/usr/include/unistd.h **** /* Return 1 if FD is a valid descriptor associated
+ 778:/usr/include/unistd.h ****    with a terminal, zero if not.  */
+ 779:/usr/include/unistd.h **** extern int isatty (int __fd) __THROW;
+ 780:/usr/include/unistd.h **** 
+ 781:/usr/include/unistd.h **** #ifdef __USE_MISC
+ 782:/usr/include/unistd.h **** /* Return the index into the active-logins file (utmp) for
+ 783:/usr/include/unistd.h ****    the controlling terminal.  */
+ 784:/usr/include/unistd.h **** extern int ttyslot (void) __THROW;
+ 785:/usr/include/unistd.h **** #endif
+ 786:/usr/include/unistd.h **** 
+ 787:/usr/include/unistd.h **** 
+ 788:/usr/include/unistd.h **** /* Make a link to FROM named TO.  */
+ 789:/usr/include/unistd.h **** extern int link (const char *__from, const char *__to)
+ 790:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2)) __wur;
+ 791:/usr/include/unistd.h **** 
+ 792:/usr/include/unistd.h **** #ifdef __USE_ATFILE
+ 793:/usr/include/unistd.h **** /* Like link but relative paths in TO and FROM are interpreted relative
+ 794:/usr/include/unistd.h ****    to FROMFD and TOFD respectively.  */
+ 795:/usr/include/unistd.h **** extern int linkat (int __fromfd, const char *__from, int __tofd,
+ 796:/usr/include/unistd.h **** 		   const char *__to, int __flags)
+ 797:/usr/include/unistd.h ****      __THROW __nonnull ((2, 4)) __wur;
+ 798:/usr/include/unistd.h **** #endif
+ 799:/usr/include/unistd.h **** 
+ 800:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K
+ 801:/usr/include/unistd.h **** /* Make a symbolic link to FROM named TO.  */
+ 802:/usr/include/unistd.h **** extern int symlink (const char *__from, const char *__to)
+ 803:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2)) __wur;
+ 804:/usr/include/unistd.h **** 
+ 805:/usr/include/unistd.h **** /* Read the contents of the symbolic link PATH into no more than
+ 806:/usr/include/unistd.h ****    LEN bytes of BUF.  The contents are not null-terminated.
+ 807:/usr/include/unistd.h ****    Returns the number of characters read, or -1 for errors.  */
+ 808:/usr/include/unistd.h **** extern ssize_t readlink (const char *__restrict __path,
+ 809:/usr/include/unistd.h **** 			 char *__restrict __buf, size_t __len)
+ 810:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2)) __wur;
+ 811:/usr/include/unistd.h **** #endif /* Use POSIX.1-2001.  */
+ 812:/usr/include/unistd.h **** 
+ 813:/usr/include/unistd.h **** #ifdef __USE_ATFILE
+ 814:/usr/include/unistd.h **** /* Like symlink but a relative path in TO is interpreted relative to TOFD.  */
+ 815:/usr/include/unistd.h **** extern int symlinkat (const char *__from, int __tofd,
+ 816:/usr/include/unistd.h **** 		      const char *__to) __THROW __nonnull ((1, 3)) __wur;
+ 817:/usr/include/unistd.h **** 
+ 818:/usr/include/unistd.h **** /* Like readlink but a relative PATH is interpreted relative to FD.  */
+ 819:/usr/include/unistd.h **** extern ssize_t readlinkat (int __fd, const char *__restrict __path,
+ 820:/usr/include/unistd.h **** 			   char *__restrict __buf, size_t __len)
+ 821:/usr/include/unistd.h ****      __THROW __nonnull ((2, 3)) __wur;
+ 822:/usr/include/unistd.h **** #endif
+ 823:/usr/include/unistd.h **** 
+ 824:/usr/include/unistd.h **** /* Remove the link NAME.  */
+ 825:/usr/include/unistd.h **** extern int unlink (const char *__name) __THROW __nonnull ((1));
+ 826:/usr/include/unistd.h **** 
+ 827:/usr/include/unistd.h **** #ifdef __USE_ATFILE
+ 828:/usr/include/unistd.h **** /* Remove the link NAME relative to FD.  */
+ 829:/usr/include/unistd.h **** extern int unlinkat (int __fd, const char *__name, int __flag)
+ 830:/usr/include/unistd.h ****      __THROW __nonnull ((2));
+ 831:/usr/include/unistd.h **** #endif
+ 832:/usr/include/unistd.h **** 
+ 833:/usr/include/unistd.h **** /* Remove the directory PATH.  */
+ 834:/usr/include/unistd.h **** extern int rmdir (const char *__path) __THROW __nonnull ((1));
+ 835:/usr/include/unistd.h **** 
+ 836:/usr/include/unistd.h **** 
+ 837:/usr/include/unistd.h **** /* Return the foreground process group ID of FD.  */
+ 838:/usr/include/unistd.h **** extern __pid_t tcgetpgrp (int __fd) __THROW;
+ 839:/usr/include/unistd.h **** 
+ 840:/usr/include/unistd.h **** /* Set the foreground process group ID of FD set PGRP_ID.  */
+ 841:/usr/include/unistd.h **** extern int tcsetpgrp (int __fd, __pid_t __pgrp_id) __THROW;
+ 842:/usr/include/unistd.h **** 
+ 843:/usr/include/unistd.h **** 
+ 844:/usr/include/unistd.h **** /* Return the login name of the user.
+ 845:/usr/include/unistd.h **** 
+ 846:/usr/include/unistd.h ****    This function is a possible cancellation point and therefore not
+ 847:/usr/include/unistd.h ****    marked with __THROW.  */
+ 848:/usr/include/unistd.h **** extern char *getlogin (void);
+ 849:/usr/include/unistd.h **** #ifdef __USE_POSIX199506
+ 850:/usr/include/unistd.h **** /* Return at most NAME_LEN characters of the login name of the user in NAME.
+ 851:/usr/include/unistd.h ****    If it cannot be determined or some other error occurred, return the error
+ 852:/usr/include/unistd.h ****    code.  Otherwise return 0.
+ 853:/usr/include/unistd.h **** 
+ 854:/usr/include/unistd.h ****    This function is a possible cancellation point and therefore not
+ 855:/usr/include/unistd.h ****    marked with __THROW.  */
+ 856:/usr/include/unistd.h **** extern int getlogin_r (char *__name, size_t __name_len) __nonnull ((1));
+ 857:/usr/include/unistd.h **** #endif
+ 858:/usr/include/unistd.h **** 
+ 859:/usr/include/unistd.h **** #ifdef	__USE_MISC
+ 860:/usr/include/unistd.h **** /* Set the login name returned by `getlogin'.  */
+ 861:/usr/include/unistd.h **** extern int setlogin (const char *__name) __THROW __nonnull ((1));
+ 862:/usr/include/unistd.h **** #endif
+ 863:/usr/include/unistd.h **** 
+ 864:/usr/include/unistd.h **** 
+ 865:/usr/include/unistd.h **** #ifdef	__USE_POSIX2
+ 866:/usr/include/unistd.h **** /* Get definitions and prototypes for functions to process the
+ 867:/usr/include/unistd.h ****    arguments in ARGV (ARGC of them, minus the program name) for
+ 868:/usr/include/unistd.h ****    options given in OPTS.  */
+ 869:/usr/include/unistd.h **** # include <bits/getopt_posix.h>
+ 870:/usr/include/unistd.h **** #endif
+ 871:/usr/include/unistd.h **** 
+ 872:/usr/include/unistd.h **** 
+ 873:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K
+ 874:/usr/include/unistd.h **** /* Put the name of the current host in no more than LEN bytes of NAME.
+ 875:/usr/include/unistd.h ****    The result is null-terminated if LEN is large enough for the full
+ 876:/usr/include/unistd.h ****    name and the terminator.  */
+ 877:/usr/include/unistd.h **** extern int gethostname (char *__name, size_t __len) __THROW __nonnull ((1));
+ 878:/usr/include/unistd.h **** #endif
+ 879:/usr/include/unistd.h **** 
+ 880:/usr/include/unistd.h **** 
+ 881:/usr/include/unistd.h **** #if defined __USE_MISC
+ 882:/usr/include/unistd.h **** /* Set the name of the current host to NAME, which is LEN bytes long.
+ 883:/usr/include/unistd.h ****    This call is restricted to the super-user.  */
+ 884:/usr/include/unistd.h **** extern int sethostname (const char *__name, size_t __len)
+ 885:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+ 886:/usr/include/unistd.h **** 
+ 887:/usr/include/unistd.h **** /* Set the current machine's Internet number to ID.
+ 888:/usr/include/unistd.h ****    This call is restricted to the super-user.  */
+ 889:/usr/include/unistd.h **** extern int sethostid (long int __id) __THROW __wur;
+ 890:/usr/include/unistd.h **** 
+ 891:/usr/include/unistd.h **** 
+ 892:/usr/include/unistd.h **** /* Get and set the NIS (aka YP) domain name, if any.
+ 893:/usr/include/unistd.h ****    Called just like `gethostname' and `sethostname'.
+ 894:/usr/include/unistd.h ****    The NIS domain name is usually the empty string when not using NIS.  */
+ 895:/usr/include/unistd.h **** extern int getdomainname (char *__name, size_t __len)
+ 896:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+ 897:/usr/include/unistd.h **** extern int setdomainname (const char *__name, size_t __len)
+ 898:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+ 899:/usr/include/unistd.h **** 
+ 900:/usr/include/unistd.h **** 
+ 901:/usr/include/unistd.h **** /* Revoke access permissions to all processes currently communicating
+ 902:/usr/include/unistd.h ****    with the control terminal, and then send a SIGHUP signal to the process
+ 903:/usr/include/unistd.h ****    group of the control terminal.  */
+ 904:/usr/include/unistd.h **** extern int vhangup (void) __THROW;
+ 905:/usr/include/unistd.h **** 
+ 906:/usr/include/unistd.h **** /* Revoke the access of all descriptors currently open on FILE.  */
+ 907:/usr/include/unistd.h **** extern int revoke (const char *__file) __THROW __nonnull ((1)) __wur;
+ 908:/usr/include/unistd.h **** 
+ 909:/usr/include/unistd.h **** 
+ 910:/usr/include/unistd.h **** /* Enable statistical profiling, writing samples of the PC into at most
+ 911:/usr/include/unistd.h ****    SIZE bytes of SAMPLE_BUFFER; every processor clock tick while profiling
+ 912:/usr/include/unistd.h ****    is enabled, the system examines the user PC and increments
+ 913:/usr/include/unistd.h ****    SAMPLE_BUFFER[((PC - OFFSET) / 2) * SCALE / 65536].  If SCALE is zero,
+ 914:/usr/include/unistd.h ****    disable profiling.  Returns zero on success, -1 on error.  */
+ 915:/usr/include/unistd.h **** extern int profil (unsigned short int *__sample_buffer, size_t __size,
+ 916:/usr/include/unistd.h **** 		   size_t __offset, unsigned int __scale)
+ 917:/usr/include/unistd.h ****      __THROW __nonnull ((1));
+ 918:/usr/include/unistd.h **** 
+ 919:/usr/include/unistd.h **** 
+ 920:/usr/include/unistd.h **** /* Turn accounting on if NAME is an existing file.  The system will then write
+ 921:/usr/include/unistd.h ****    a record for each process as it terminates, to this file.  If NAME is NULL,
+ 922:/usr/include/unistd.h ****    turn accounting off.  This call is restricted to the super-user.  */
+ 923:/usr/include/unistd.h **** extern int acct (const char *__name) __THROW;
+ 924:/usr/include/unistd.h **** 
+ 925:/usr/include/unistd.h **** 
+ 926:/usr/include/unistd.h **** /* Successive calls return the shells listed in `/etc/shells'.  */
+ 927:/usr/include/unistd.h **** extern char *getusershell (void) __THROW;
+ 928:/usr/include/unistd.h **** extern void endusershell (void) __THROW; /* Discard cached info.  */
+ 929:/usr/include/unistd.h **** extern void setusershell (void) __THROW; /* Rewind and re-read the file.  */
+ 930:/usr/include/unistd.h **** 
+ 931:/usr/include/unistd.h **** 
+ 932:/usr/include/unistd.h **** /* Put the program in the background, and dissociate from the controlling
+ 933:/usr/include/unistd.h ****    terminal.  If NOCHDIR is zero, do `chdir ("/")'.  If NOCLOSE is zero,
+ 934:/usr/include/unistd.h ****    redirects stdin, stdout, and stderr to /dev/null.  */
+ 935:/usr/include/unistd.h **** extern int daemon (int __nochdir, int __noclose) __THROW __wur;
+ 936:/usr/include/unistd.h **** #endif /* Use misc.  */
+ 937:/usr/include/unistd.h **** 
+ 938:/usr/include/unistd.h **** 
+ 939:/usr/include/unistd.h **** #if defined __USE_MISC || (defined __USE_XOPEN && !defined __USE_XOPEN2K)
+ 940:/usr/include/unistd.h **** /* Make PATH be the root directory (the starting point for absolute paths).
+ 941:/usr/include/unistd.h ****    This call is restricted to the super-user.  */
+ 942:/usr/include/unistd.h **** extern int chroot (const char *__path) __THROW __nonnull ((1)) __wur;
+ 943:/usr/include/unistd.h **** 
+ 944:/usr/include/unistd.h **** /* Prompt with PROMPT and read a string from the terminal without echoing.
+ 945:/usr/include/unistd.h ****    Uses /dev/tty if possible; otherwise stderr and stdin.  */
+ 946:/usr/include/unistd.h **** extern char *getpass (const char *__prompt) __nonnull ((1));
+ 947:/usr/include/unistd.h **** #endif /* Use misc || X/Open.  */
+ 948:/usr/include/unistd.h **** 
+ 949:/usr/include/unistd.h **** 
+ 950:/usr/include/unistd.h **** /* Make all changes done to FD actually appear on disk.
+ 951:/usr/include/unistd.h **** 
+ 952:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+ 953:/usr/include/unistd.h ****    __THROW.  */
+ 954:/usr/include/unistd.h **** extern int fsync (int __fd);
+ 955:/usr/include/unistd.h **** 
+ 956:/usr/include/unistd.h **** 
+ 957:/usr/include/unistd.h **** #ifdef __USE_GNU
+ 958:/usr/include/unistd.h **** /* Make all changes done to all files on the file system associated
+ 959:/usr/include/unistd.h ****    with FD actually appear on disk.  */
+ 960:/usr/include/unistd.h **** extern int syncfs (int __fd) __THROW;
+ 961:/usr/include/unistd.h **** #endif
+ 962:/usr/include/unistd.h **** 
+ 963:/usr/include/unistd.h **** 
+ 964:/usr/include/unistd.h **** #if defined __USE_MISC || defined __USE_XOPEN_EXTENDED
+ 965:/usr/include/unistd.h **** 
+ 966:/usr/include/unistd.h **** /* Return identifier for the current host.  */
+ 967:/usr/include/unistd.h **** extern long int gethostid (void);
+ 968:/usr/include/unistd.h **** 
+ 969:/usr/include/unistd.h **** /* Make all changes done to all files actually appear on disk.  */
+ 970:/usr/include/unistd.h **** extern void sync (void) __THROW;
+ 971:/usr/include/unistd.h **** 
+ 972:/usr/include/unistd.h **** 
+ 973:/usr/include/unistd.h **** # if defined __USE_MISC || !defined __USE_XOPEN2K
+ 974:/usr/include/unistd.h **** /* Return the number of bytes in a page.  This is the system's page size,
+ 975:/usr/include/unistd.h ****    which is not necessarily the same as the hardware page size.  */
+ 976:/usr/include/unistd.h **** extern int getpagesize (void)  __THROW __attribute__ ((__const__));
+ 977:/usr/include/unistd.h **** 
+ 978:/usr/include/unistd.h **** 
+ 979:/usr/include/unistd.h **** /* Return the maximum number of file descriptors
+ 980:/usr/include/unistd.h ****    the current process could possibly have.  */
+ 981:/usr/include/unistd.h **** extern int getdtablesize (void) __THROW;
+ 982:/usr/include/unistd.h **** # endif
+ 983:/usr/include/unistd.h **** 
+ 984:/usr/include/unistd.h **** #endif /* Use misc || X/Open Unix.  */
+ 985:/usr/include/unistd.h **** 
+ 986:/usr/include/unistd.h **** 
+ 987:/usr/include/unistd.h **** #if defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K8
+ 988:/usr/include/unistd.h **** 
+ 989:/usr/include/unistd.h **** /* Truncate FILE to LENGTH bytes.  */
+ 990:/usr/include/unistd.h **** # ifndef __USE_FILE_OFFSET64
+ 991:/usr/include/unistd.h **** extern int truncate (const char *__file, __off_t __length)
+ 992:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+ 993:/usr/include/unistd.h **** # else
+ 994:/usr/include/unistd.h **** #  ifdef __REDIRECT_NTH
+ 995:/usr/include/unistd.h **** extern int __REDIRECT_NTH (truncate,
+ 996:/usr/include/unistd.h **** 			   (const char *__file, __off64_t __length),
+ 997:/usr/include/unistd.h **** 			   truncate64) __nonnull ((1)) __wur;
+ 998:/usr/include/unistd.h **** #  else
+ 999:/usr/include/unistd.h **** #   define truncate truncate64
+1000:/usr/include/unistd.h **** #  endif
+1001:/usr/include/unistd.h **** # endif
+1002:/usr/include/unistd.h **** # ifdef __USE_LARGEFILE64
+1003:/usr/include/unistd.h **** extern int truncate64 (const char *__file, __off64_t __length)
+1004:/usr/include/unistd.h ****      __THROW __nonnull ((1)) __wur;
+1005:/usr/include/unistd.h **** # endif
+1006:/usr/include/unistd.h **** 
+1007:/usr/include/unistd.h **** #endif /* Use X/Open Unix || POSIX 2008.  */
+1008:/usr/include/unistd.h **** 
+1009:/usr/include/unistd.h **** #if defined __USE_POSIX199309 \
+1010:/usr/include/unistd.h ****     || defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K
+1011:/usr/include/unistd.h **** 
+1012:/usr/include/unistd.h **** /* Truncate the file FD is open on to LENGTH bytes.  */
+1013:/usr/include/unistd.h **** # ifndef __USE_FILE_OFFSET64
+1014:/usr/include/unistd.h **** extern int ftruncate (int __fd, __off_t __length) __THROW __wur;
+1015:/usr/include/unistd.h **** # else
+1016:/usr/include/unistd.h **** #  ifdef __REDIRECT_NTH
+1017:/usr/include/unistd.h **** extern int __REDIRECT_NTH (ftruncate, (int __fd, __off64_t __length),
+1018:/usr/include/unistd.h **** 			   ftruncate64) __wur;
+1019:/usr/include/unistd.h **** #  else
+1020:/usr/include/unistd.h **** #   define ftruncate ftruncate64
+1021:/usr/include/unistd.h **** #  endif
+1022:/usr/include/unistd.h **** # endif
+1023:/usr/include/unistd.h **** # ifdef __USE_LARGEFILE64
+1024:/usr/include/unistd.h **** extern int ftruncate64 (int __fd, __off64_t __length) __THROW __wur;
+1025:/usr/include/unistd.h **** # endif
+1026:/usr/include/unistd.h **** 
+1027:/usr/include/unistd.h **** #endif /* Use POSIX.1b || X/Open Unix || XPG6.  */
+1028:/usr/include/unistd.h **** 
+1029:/usr/include/unistd.h **** 
+1030:/usr/include/unistd.h **** #if (defined __USE_XOPEN_EXTENDED && !defined __USE_XOPEN2K) \
+1031:/usr/include/unistd.h ****     || defined __USE_MISC
+1032:/usr/include/unistd.h **** 
+1033:/usr/include/unistd.h **** /* Set the end of accessible data space (aka "the break") to ADDR.
+1034:/usr/include/unistd.h ****    Returns zero on success and -1 for errors (with errno set).  */
+1035:/usr/include/unistd.h **** extern int brk (void *__addr) __THROW __wur;
+1036:/usr/include/unistd.h **** 
+1037:/usr/include/unistd.h **** /* Increase or decrease the end of accessible data space by DELTA bytes.
+1038:/usr/include/unistd.h ****    If successful, returns the address the previous end of data space
+1039:/usr/include/unistd.h ****    (i.e. the beginning of the new space, if DELTA > 0);
+1040:/usr/include/unistd.h ****    returns (void *) -1 for errors (with errno set).  */
+1041:/usr/include/unistd.h **** extern void *sbrk (intptr_t __delta) __THROW;
+1042:/usr/include/unistd.h **** #endif
+1043:/usr/include/unistd.h **** 
+1044:/usr/include/unistd.h **** 
+1045:/usr/include/unistd.h **** #ifdef __USE_MISC
+1046:/usr/include/unistd.h **** /* Invoke `system call' number SYSNO, passing it the remaining arguments.
+1047:/usr/include/unistd.h ****    This is completely system-dependent, and not often useful.
+1048:/usr/include/unistd.h **** 
+1049:/usr/include/unistd.h ****    In Unix, `syscall' sets `errno' for all errors and most calls return -1
+1050:/usr/include/unistd.h ****    for errors; in many systems you cannot pass arguments or get return
+1051:/usr/include/unistd.h ****    values for all system calls (`pipe', `fork', and `getppid' typically
+1052:/usr/include/unistd.h ****    among them).
+1053:/usr/include/unistd.h **** 
+1054:/usr/include/unistd.h ****    In Mach, all system calls take normal arguments and always return an
+1055:/usr/include/unistd.h ****    error code (zero for success).  */
+1056:/usr/include/unistd.h **** extern long int syscall (long int __sysno, ...) __THROW;
+1057:/usr/include/unistd.h **** 
+1058:/usr/include/unistd.h **** #endif	/* Use misc.  */
+1059:/usr/include/unistd.h **** 
+1060:/usr/include/unistd.h **** 
+1061:/usr/include/unistd.h **** #if (defined __USE_MISC || defined __USE_XOPEN_EXTENDED) && !defined F_LOCK
+1062:/usr/include/unistd.h **** /* NOTE: These declarations also appear in <fcntl.h>; be sure to keep both
+1063:/usr/include/unistd.h ****    files consistent.  Some systems have them there and some here, and some
+1064:/usr/include/unistd.h ****    software depends on the macros being defined without including both.  */
+1065:/usr/include/unistd.h **** 
+1066:/usr/include/unistd.h **** /* `lockf' is a simpler interface to the locking facilities of `fcntl'.
+1067:/usr/include/unistd.h ****    LEN is always relative to the current file position.
+1068:/usr/include/unistd.h ****    The CMD argument is one of the following.
+1069:/usr/include/unistd.h **** 
+1070:/usr/include/unistd.h ****    This function is a cancellation point and therefore not marked with
+1071:/usr/include/unistd.h ****    __THROW.  */
+1072:/usr/include/unistd.h **** 
+1073:/usr/include/unistd.h **** # define F_ULOCK 0	/* Unlock a previously locked region.  */
+1074:/usr/include/unistd.h **** # define F_LOCK  1	/* Lock a region for exclusive use.  */
+1075:/usr/include/unistd.h **** # define F_TLOCK 2	/* Test and lock a region for exclusive use.  */
+1076:/usr/include/unistd.h **** # define F_TEST  3	/* Test a region for other processes locks.  */
+1077:/usr/include/unistd.h **** 
+1078:/usr/include/unistd.h **** # ifndef __USE_FILE_OFFSET64
+1079:/usr/include/unistd.h **** extern int lockf (int __fd, int __cmd, __off_t __len) __wur;
+1080:/usr/include/unistd.h **** # else
+1081:/usr/include/unistd.h **** #  ifdef __REDIRECT
+1082:/usr/include/unistd.h **** extern int __REDIRECT (lockf, (int __fd, int __cmd, __off64_t __len),
+1083:/usr/include/unistd.h **** 		       lockf64) __wur;
+1084:/usr/include/unistd.h **** #  else
+1085:/usr/include/unistd.h **** #   define lockf lockf64
+1086:/usr/include/unistd.h **** #  endif
+1087:/usr/include/unistd.h **** # endif
+1088:/usr/include/unistd.h **** # ifdef __USE_LARGEFILE64
+1089:/usr/include/unistd.h **** extern int lockf64 (int __fd, int __cmd, __off64_t __len) __wur;
+1090:/usr/include/unistd.h **** # endif
+1091:/usr/include/unistd.h **** #endif /* Use misc and F_LOCK not already defined.  */
+1092:/usr/include/unistd.h **** 
+1093:/usr/include/unistd.h **** 
+1094:/usr/include/unistd.h **** #ifdef __USE_GNU
+1095:/usr/include/unistd.h **** 
+1096:/usr/include/unistd.h **** /* Evaluate EXPRESSION, and repeat as long as it returns -1 with `errno'
+1097:/usr/include/unistd.h ****    set to EINTR.  */
+1098:/usr/include/unistd.h **** 
+1099:/usr/include/unistd.h **** # define TEMP_FAILURE_RETRY(expression) \
+1100:/usr/include/unistd.h ****   (__extension__							      \
+1101:/usr/include/unistd.h ****     ({ long int __result;						      \
+1102:/usr/include/unistd.h ****        do __result = (long int) (expression);				      \
+1103:/usr/include/unistd.h ****        while (__result == -1L && errno == EINTR);			      \
+1104:/usr/include/unistd.h ****        __result; }))
+1105:/usr/include/unistd.h **** 
+1106:/usr/include/unistd.h **** /* Copy LENGTH bytes from INFD to OUTFD.  */
+1107:/usr/include/unistd.h **** ssize_t copy_file_range (int __infd, __off64_t *__pinoff,
+1108:/usr/include/unistd.h **** 			 int __outfd, __off64_t *__poutoff,
+1109:/usr/include/unistd.h **** 			 size_t __length, unsigned int __flags);
+1110:/usr/include/unistd.h **** #endif /* __USE_GNU */
+1111:/usr/include/unistd.h **** 
+1112:/usr/include/unistd.h **** #if defined __USE_POSIX199309 || defined __USE_UNIX98
+1113:/usr/include/unistd.h **** /* Synchronize at least the data part of a file with the underlying
+1114:/usr/include/unistd.h ****    media.  */
+1115:/usr/include/unistd.h **** extern int fdatasync (int __fildes);
+1116:/usr/include/unistd.h **** #endif /* Use POSIX199309 */
+1117:/usr/include/unistd.h **** 
+1118:/usr/include/unistd.h **** #ifdef __USE_MISC
+1119:/usr/include/unistd.h **** /* One-way hash PHRASE, returning a string suitable for storage in the
+1120:/usr/include/unistd.h ****    user database.  SALT selects the one-way function to use, and
+1121:/usr/include/unistd.h ****    ensures that no two users' hashes are the same, even if they use
+1122:/usr/include/unistd.h ****    the same passphrase.  The return value points to static storage
+1123:/usr/include/unistd.h ****    which will be overwritten by the next call to crypt.  */
+1124:/usr/include/unistd.h **** extern char *crypt (const char *__key, const char *__salt)
+1125:/usr/include/unistd.h ****      __THROW __nonnull ((1, 2));
+1126:/usr/include/unistd.h **** #endif
+1127:/usr/include/unistd.h **** 
+1128:/usr/include/unistd.h **** #ifdef	__USE_XOPEN
+1129:/usr/include/unistd.h **** /* Swab pairs bytes in the first N bytes of the area pointed to by
+1130:/usr/include/unistd.h ****    FROM and copy the result to TO.  The value of TO must not be in the
+1131:/usr/include/unistd.h ****    range [FROM - N + 1, FROM - 1].  If N is odd the first byte in FROM
+1132:/usr/include/unistd.h ****    is without partner.  */
+1133:/usr/include/unistd.h **** extern void swab (const void *__restrict __from, void *__restrict __to,
+1134:/usr/include/unistd.h **** 		  ssize_t __n) __THROW __nonnull ((1, 2));
+1135:/usr/include/unistd.h **** #endif
+1136:/usr/include/unistd.h **** 
+1137:/usr/include/unistd.h **** 
+1138:/usr/include/unistd.h **** /* Prior to Issue 6, the Single Unix Specification required these
+1139:/usr/include/unistd.h ****    prototypes to appear in this header.  They are also found in
+1140:/usr/include/unistd.h ****    <stdio.h>.  */
+1141:/usr/include/unistd.h **** #if defined __USE_XOPEN && !defined __USE_XOPEN2K
+1142:/usr/include/unistd.h **** /* Return the name of the controlling terminal.  */
+1143:/usr/include/unistd.h **** extern char *ctermid (char *__s) __THROW;
+1144:/usr/include/unistd.h **** 
+1145:/usr/include/unistd.h **** /* Return the name of the current user.  */
+1146:/usr/include/unistd.h **** extern char *cuserid (char *__s);
+1147:/usr/include/unistd.h **** #endif
+1148:/usr/include/unistd.h **** 
+1149:/usr/include/unistd.h **** 
+1150:/usr/include/unistd.h **** /* Unix98 requires this function to be declared here.  In other
+1151:/usr/include/unistd.h ****    standards it is in <pthread.h>.  */
+1152:/usr/include/unistd.h **** #if defined __USE_UNIX98 && !defined __USE_XOPEN2K
+1153:/usr/include/unistd.h **** extern int pthread_atfork (void (*__prepare) (void),
+1154:/usr/include/unistd.h **** 			   void (*__parent) (void),
+1155:/usr/include/unistd.h **** 			   void (*__child) (void)) __THROW;
+1156:/usr/include/unistd.h **** #endif
+1157:/usr/include/unistd.h **** 
+1158:/usr/include/unistd.h **** #ifdef __USE_MISC
+1159:/usr/include/unistd.h **** /* Write LENGTH bytes of randomness starting at BUFFER.  Return 0 on
+1160:/usr/include/unistd.h ****    success or -1 on error.  */
+1161:/usr/include/unistd.h **** int getentropy (void *__buffer, size_t __length) __wur;
+1162:/usr/include/unistd.h **** #endif
+1163:/usr/include/unistd.h **** 
+1164:/usr/include/unistd.h **** /* Define some macros helping to catch buffer overflows.  */
+1165:/usr/include/unistd.h **** #if __USE_FORTIFY_LEVEL > 0 && defined __fortify_function
+1166:/usr/include/unistd.h **** # include <bits/unistd.h>
+1167:/usr/include/unistd.h **** #endif
+1168:/usr/include/unistd.h **** 
+1169:/usr/include/unistd.h **** __END_DECLS
+  64              		.loc 1 1169 1 view -0
+  65              		.cfi_startproc
+  66              	.LVL0:
+  67              	.LBB4:
+  68              	.LBI4:
+  69              		.loc 1 1169 1 view .LVU1
+  70              	.LBE4:
+  71 0000 4883EC08 		subq	$8, %rsp	#,
+  72              		.cfi_def_cfa_offset 16
+  73              	.LBB7:
+  74              	.LBB5:
+  75              	# /usr/include/c++/8/iostream:74:   static ios_base::Init __ioinit;
+  76              		.file 2 "/usr/include/c++/8/iostream"
+   1:/usr/include/c++/8/iostream **** // Standard iostream objects -*- C++ -*-
+   2:/usr/include/c++/8/iostream **** 
+   3:/usr/include/c++/8/iostream **** // Copyright (C) 1997-2018 Free Software Foundation, Inc.
+   4:/usr/include/c++/8/iostream **** //
+   5:/usr/include/c++/8/iostream **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/include/c++/8/iostream **** // software; you can redistribute it and/or modify it under the
+   7:/usr/include/c++/8/iostream **** // terms of the GNU General Public License as published by the
+   8:/usr/include/c++/8/iostream **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/include/c++/8/iostream **** // any later version.
+  10:/usr/include/c++/8/iostream **** 
+  11:/usr/include/c++/8/iostream **** // This library is distributed in the hope that it will be useful,
+  12:/usr/include/c++/8/iostream **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/include/c++/8/iostream **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/include/c++/8/iostream **** // GNU General Public License for more details.
+  15:/usr/include/c++/8/iostream **** 
+  16:/usr/include/c++/8/iostream **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/include/c++/8/iostream **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/include/c++/8/iostream **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/include/c++/8/iostream **** 
+  20:/usr/include/c++/8/iostream **** // You should have received a copy of the GNU General Public License and
+  21:/usr/include/c++/8/iostream **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/include/c++/8/iostream **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/include/c++/8/iostream **** // <http://www.gnu.org/licenses/>.
+  24:/usr/include/c++/8/iostream **** 
+  25:/usr/include/c++/8/iostream **** /** @file include/iostream
+  26:/usr/include/c++/8/iostream ****  *  This is a Standard C++ Library header.
+  27:/usr/include/c++/8/iostream ****  */
+  28:/usr/include/c++/8/iostream **** 
+  29:/usr/include/c++/8/iostream **** //
+  30:/usr/include/c++/8/iostream **** // ISO C++ 14882: 27.3  Standard iostream objects
+  31:/usr/include/c++/8/iostream **** //
+  32:/usr/include/c++/8/iostream **** 
+  33:/usr/include/c++/8/iostream **** #ifndef _GLIBCXX_IOSTREAM
+  34:/usr/include/c++/8/iostream **** #define _GLIBCXX_IOSTREAM 1
+  35:/usr/include/c++/8/iostream **** 
+  36:/usr/include/c++/8/iostream **** #pragma GCC system_header
+  37:/usr/include/c++/8/iostream **** 
+  38:/usr/include/c++/8/iostream **** #include <bits/c++config.h>
+  39:/usr/include/c++/8/iostream **** #include <ostream>
+  40:/usr/include/c++/8/iostream **** #include <istream>
+  41:/usr/include/c++/8/iostream **** 
+  42:/usr/include/c++/8/iostream **** namespace std _GLIBCXX_VISIBILITY(default)
+  43:/usr/include/c++/8/iostream **** {
+  44:/usr/include/c++/8/iostream **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  45:/usr/include/c++/8/iostream **** 
+  46:/usr/include/c++/8/iostream ****   /**
+  47:/usr/include/c++/8/iostream ****    *  @name Standard Stream Objects
+  48:/usr/include/c++/8/iostream ****    *
+  49:/usr/include/c++/8/iostream ****    *  The &lt;iostream&gt; header declares the eight <em>standard stream
+  50:/usr/include/c++/8/iostream ****    *  objects</em>.  For other declarations, see
+  51:/usr/include/c++/8/iostream ****    *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/io.html
+  52:/usr/include/c++/8/iostream ****    *  and the @link iosfwd I/O forward declarations @endlink
+  53:/usr/include/c++/8/iostream ****    *
+  54:/usr/include/c++/8/iostream ****    *  They are required by default to cooperate with the global C
+  55:/usr/include/c++/8/iostream ****    *  library's @c FILE streams, and to be available during program
+  56:/usr/include/c++/8/iostream ****    *  startup and termination. For more information, see the section of the
+  57:/usr/include/c++/8/iostream ****    *  manual linked to above.
+  58:/usr/include/c++/8/iostream ****   */
+  59:/usr/include/c++/8/iostream ****   //@{
+  60:/usr/include/c++/8/iostream ****   extern istream cin;		/// Linked to standard input
+  61:/usr/include/c++/8/iostream ****   extern ostream cout;		/// Linked to standard output
+  62:/usr/include/c++/8/iostream ****   extern ostream cerr;		/// Linked to standard error (unbuffered)
+  63:/usr/include/c++/8/iostream ****   extern ostream clog;		/// Linked to standard error (buffered)
+  64:/usr/include/c++/8/iostream **** 
+  65:/usr/include/c++/8/iostream **** #ifdef _GLIBCXX_USE_WCHAR_T
+  66:/usr/include/c++/8/iostream ****   extern wistream wcin;		/// Linked to standard input
+  67:/usr/include/c++/8/iostream ****   extern wostream wcout;	/// Linked to standard output
+  68:/usr/include/c++/8/iostream ****   extern wostream wcerr;	/// Linked to standard error (unbuffered)
+  69:/usr/include/c++/8/iostream ****   extern wostream wclog;	/// Linked to standard error (buffered)
+  70:/usr/include/c++/8/iostream **** #endif
+  71:/usr/include/c++/8/iostream ****   //@}
+  72:/usr/include/c++/8/iostream **** 
+  73:/usr/include/c++/8/iostream ****   // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  74:/usr/include/c++/8/iostream ****   static ios_base::Init __ioinit;
+  77              		.loc 2 74 25 is_stmt 0 view .LVU2
+  78 0004 BF000000 		movl	$_ZStL8__ioinit, %edi	#,
+  78      00
+  79 0009 E8000000 		call	_ZNSt8ios_base4InitC1Ev	#
+  79      00
+  80              	.LVL1:
+  81 000e BA000000 		movl	$__dso_handle, %edx	#,
+  81      00
+  82 0013 BE000000 		movl	$_ZStL8__ioinit, %esi	#,
+  82      00
+  83 0018 BF000000 		movl	$_ZNSt8ios_base4InitD1Ev, %edi	#,
+  83      00
+  84              	.LBE5:
+  85              	.LBE7:
+  86              	# /usr/include/unistd.h:1169: __END_DECLS
+  87              		.loc 1 1169 1 view .LVU3
+  88 001d 4883C408 		addq	$8, %rsp	#,
+  89              		.cfi_def_cfa_offset 8
+  90              	.LBB8:
+  91              	.LBB6:
+  92              	# /usr/include/c++/8/iostream:74:   static ios_base::Init __ioinit;
+  93              		.loc 2 74 25 view .LVU4
+  94 0021 E9000000 		jmp	__cxa_atexit	#
+  94      00
+  95              	.LVL2:
+  96              	.LBE6:
+  97              	.LBE8:
+  98              		.cfi_endproc
+  99              	.LFE2180:
+ 101              		.section	.init_array,"aw"
+ 102              		.align 8
+ 103 0000 00000000 		.quad	_GLOBAL__sub_I_main.cpp
+ 103      00000000 
+ 104              		.local	_ZStL8__ioinit
+ 105              		.comm	_ZStL8__ioinit,1,1
+ 106              		.text
+ 107              	.Letext0:
+ 108              		.file 3 "/usr/include/c++/8/cwchar"
+ 109              		.file 4 "/usr/include/c++/8/new"
+ 110              		.file 5 "/usr/include/c++/8/bits/exception_ptr.h"
+ 111              		.file 6 "/usr/include/c++/8/type_traits"
+ 112              		.file 7 "/usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h"
+ 113              		.file 8 "/usr/include/c++/8/bits/stl_pair.h"
+ 114              		.file 9 "/usr/include/c++/8/debug/debug.h"
+ 115              		.file 10 "/usr/include/c++/8/bits/char_traits.h"
+ 116              		.file 11 "/usr/include/c++/8/cstdint"
+ 117              		.file 12 "/usr/include/c++/8/clocale"
+ 118              		.file 13 "/usr/include/c++/8/cstdlib"
+ 119              		.file 14 "/usr/include/c++/8/cstdio"
+ 120              		.file 15 "/usr/include/c++/8/bits/basic_string.h"
+ 121              		.file 16 "/usr/include/c++/8/system_error"
+ 122              		.file 17 "/usr/include/c++/8/bits/ios_base.h"
+ 123              		.file 18 "/usr/include/c++/8/cwctype"
+ 124              		.file 19 "/usr/include/c++/8/iosfwd"
+ 125              		.file 20 "/usr/include/c++/8/bits/predefined_ops.h"
+ 126              		.file 21 "/usr/include/c++/8/ext/new_allocator.h"
+ 127              		.file 22 "/usr/include/c++/8/ext/numeric_traits.h"
+ 128              		.file 23 "/usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h"
+ 129              		.file 24 "<built-in>"
+ 130              		.file 25 "/usr/include/bits/types/wint_t.h"
+ 131              		.file 26 "/usr/include/bits/types/__mbstate_t.h"
+ 132              		.file 27 "/usr/include/bits/types/mbstate_t.h"
+ 133              		.file 28 "/usr/include/bits/types/__FILE.h"
+ 134              		.file 29 "/usr/include/bits/types/struct_FILE.h"
+ 135              		.file 30 "/usr/include/bits/types/FILE.h"
+ 136              		.file 31 "/usr/include/wchar.h"
+ 137              		.file 32 "/usr/include/bits/types/struct_tm.h"
+ 138              		.file 33 "/usr/include/bits/types.h"
+ 139              		.file 34 "/usr/include/bits/stdint-intn.h"
+ 140              		.file 35 "/usr/include/bits/stdint-uintn.h"
+ 141              		.file 36 "/usr/include/stdint.h"
+ 142              		.file 37 "/usr/include/locale.h"
+ 143              		.file 38 "/usr/include/time.h"
+ 144              		.file 39 "/usr/include/c++/8/x86_64-redhat-linux/bits/atomic_word.h"
+ 145              		.file 40 "/usr/include/stdlib.h"
+ 146              		.file 41 "/usr/include/bits/stdlib-float.h"
+ 147              		.file 42 "/usr/include/bits/stdlib-bsearch.h"
+ 148              		.file 43 "/usr/include/bits/types/__fpos_t.h"
+ 149              		.file 44 "/usr/include/stdio.h"
+ 150              		.file 45 "/usr/include/bits/sys_errlist.h"
+ 151              		.file 46 "/usr/include/bits/stdio.h"
+ 152              		.file 47 "/usr/include/errno.h"
+ 153              		.file 48 "/usr/include/bits/wctype-wchar.h"
+ 154              		.file 49 "/usr/include/wctype.h"
+ 155              		.file 50 "/usr/include/bits/getopt_core.h"

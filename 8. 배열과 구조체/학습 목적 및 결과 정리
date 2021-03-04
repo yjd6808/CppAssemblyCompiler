@@ -1,0 +1,221 @@
+작성자 : 윤정도
+작성일 : 2020-02-07 (일)
+목적   : 배열과 구조체 학습
+
+========================================================================
+[데이터 영역 배열 선언]
+
+segement .data
+arr:	dd		1, 2, 3, 4, 5			;	int arr[5] = {1, 2, 3, 4, 5}; 동일
+brr:	times	10	dd	1				;	int brr[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}; 동일
+str:	db		'Hello Word!', 10, 0	;	char str[13] = "Hello World!\n" 동일
+
+segement .bss
+crr:	resd	20						;	int crr[20]; 동일
+
+
+========================================================================
+[지역변수 배열 다루기]
+
+segement .text
+global local_arr_test
+local_arr_test:
+			push	ebp
+			mov		ebp,						esp
+			sub		esp,						80						;	int arr[20] 공간 확보
+			mov		ecx,						0						;	i = 0
+			
+L1:			cmp		ecx,						20						;	i < 20 ?
+			jge		L2
+
+			mov		[ebp - 80 + 4 * ecx],		ecx						;	arr[i] = i
+			mov		ebx,						[ebp - 80 + 4 * ecx]
+
+			inc		ecx													;	i++
+			jmp		L1
+
+L2:			mov		esp,						ebp
+			pop		ebp
+			ret
+
+========================================================================
+[esi]
+
+esi : extended source index의 약자로 배열 엘리먼트의 포인터값을 저장할 때 사용한다.
+일반 레지스터처럼 사용가능하고 배열의 값을 read 할 때 사용한다.
+
+string = array라고 생각하면 됨
+
+lodsd : load string double word
+
+mov		eax,	[esi]
+add		esi,	4
+
+lodsw : load string word
+
+mov		eax,	[esi]
+add		esi,	2
+
+lodsb : load string byte
+
+mov		eax,	[esi]
+add		esi,	1
+
+위의 3가지 명령어를 사용가능하다.
+
+
+========================================================================
+[edi]
+
+edi : extended destination index의 약자로 배열 엘리먼트의 포인터값을 저장할 때 사용한다.
+일반 레지스터처럼 사용가능하고 배열의 값을 write 할 때 사용한다.
+
+string = array라고 생각하면 됨
+
+stosd : store string double word
+
+mov		[edi],		eax
+add		edi,		4
+
+stosw : store string word
+
+mov		[edi],		eax
+add		edi,		2
+
+
+stosb : store string byte
+
+mov		[edi],		eax
+add		edi,		1
+
+위의 3가지 명령어를 사용가능하다.
+
+
+========================================================================
+[direction flag]
+
+8086 프로세서에는 direction flag가 존재한다.
+이 플래그는 배열 명령어 사용시 다음 원소 지정 방향을 알려주는 역할을 한다.
+
+15: reserved for future purposes
+14: Nested-Task
+13: I/O Privileged Level
+12: I/O Privileged Level
+11: Overflow-Flag
+10: Direction-Flag (see also: STD, CLD)
+9: Interrupt enable (see also: STI, CLI)
+8: Trap-Flag (Trap mode)
+7: Signflag
+6: Equal/Zero-Flag
+5: reserved for future purposes
+4: Auxiliary-Flag
+3: reserved for future purposes
+2: parity-Flag
+1: reserved for future purposes
+0: Carry-Flag
+
+플래그 레지스터의 11번째 비트값이 디렉션 플래그 비트이다.
+기본 플래그 세팅은 0이다.
+
+cld : clear direction flag 
+		->	direction flag bit 를 0으로 설정한다.
+std : set direction flag
+		->	direction flag bit 를 1으로 설정한다.
+
+direction flag가 0일 경우 배열 명령어 사용시
+
+lodsd 명령어의 경우
+mov		eax,		[esi]
+add		esi,		4
+
+stosd 명령어의 경우
+mov		[edi],		eax
+add		edi,		4
+
+와 같이 해당 인덱스 레지스터에 +연산을 해준다.
+
+
+direction flag가 0일 경우 배열 명령어 사용시
+
+lodsd 명령어의 경우
+mov		eax,		[esi]
+add		esi,		-4
+
+stosd 명령어의 경우
+mov		[edi],		eax
+add		edi,		-4
+
+와 같이 해당 인덱스 레지스터에 -연산을 해준다.
+
+========================================================================
+[그 외 배열 명령어들]
+
+scasX : EDI 레지스터가 가리키는 배열 원소를 AL(AX, EAX) 레지스터 내용과 비교한다.
+		비교 결과는 플래그 레지스터에 반영됨
+		EDI 레지스터는 원소 크기에 따라 증가함
+
+ex)
+scasd
+
+cmp		[edi],		eax
+add		edi,		4
+
+scasw
+
+cmp		[edi],		ax
+add		edi,		2
+
+
+movsX : ESI 레지스터가 가리키는 배열원소를 EDI 레지스터가 가리키는 배열 원소로 복사한다.
+		복사한 후 ESI 레지스터, EDI 레지스터 각각 원소 크기만큼 1, 2, 4씩 증가함
+
+ex)
+movsd
+
+mov		eax,		[esi]
+mov		[edi],		eax
+add		esi,		4
+add		edi,		4
+
+[visual studio masm 코드]
+
+	for (int i = 0; i < 10; i++)
+		arr[i] = i;
+
+	__asm
+	{
+		lea		esi,				arr
+		lea		edi,				brr
+		
+W_1:	cmp		dword ptr[i],		10
+		jge		W_E_1
+
+		movsd
+
+		inc		dword ptr[i]
+		jmp		W_1
+W_E_1:	
+	}
+
+	for (int i = 0; i < 10; i++)
+		std::cout << brr[i] << ' ';
+-----------------------------------------
+출력결과 : 0 1 2 3 4 5 6 7 8 9 
+arr배열의 값이 brr배열로 복사된 것을 확인할 수 있다.
+
+cmpsX : ESI 레지스터가 가리키는 배열원소를 EDI 레지스터가 가리키는 배열 원소와 비교한다.
+		ESI 레지스터, EDI 레지스터 각각 원소 크기만큼 1, 2, 4씩 증가함
+
+ex)
+cmpsd
+
+mov		eax,		[esi]
+cmp		eax,		[edi]
+add		esi,		4
+add		edi,		4
+
+
+
+========================================================================
+[구조체]
+

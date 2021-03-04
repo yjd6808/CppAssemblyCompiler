@@ -1,0 +1,338 @@
+   1              		.file	"main.cpp"
+   2              	# GNU C++14 (GCC) version 8.3.1 20191121 (Red Hat 8.3.1-5) (x86_64-redhat-linux)
+   3              	#	compiled by GNU C version 8.3.1 20191121 (Red Hat 8.3.1-5), GMP version 6.1.2, MPFR version 3.1.6
+   4              	# GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+   5              	# options passed:  -D_GNU_SOURCE main.cpp -mtune=generic -march=x86-64
+   6              	# -auxbase-strip main.s -g -O2 -fverbose-asm
+   7              	# options enabled:  -faggressive-loop-optimizations -falign-labels
+   8              	# -fasynchronous-unwind-tables -fauto-inc-dec -fbranch-count-reg
+   9              	# -fcaller-saves -fchkp-check-incomplete-type -fchkp-check-read
+  10              	# -fchkp-check-write -fchkp-instrument-calls -fchkp-narrow-bounds
+  11              	# -fchkp-optimize -fchkp-store-bounds -fchkp-use-static-bounds
+  12              	# -fchkp-use-static-const-bounds -fchkp-use-wrappers -fcode-hoisting
+  13              	# -fcombine-stack-adjustments -fcommon -fcompare-elim -fcprop-registers
+  14              	# -fcrossjumping -fcse-follow-jumps -fdefer-pop
+  15              	# -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively
+  16              	# -fdwarf2-cfi-asm -fearly-inlining -feliminate-unused-debug-types
+  17              	# -fexceptions -fexpensive-optimizations -fforward-propagate
+  18              	# -ffp-int-builtin-inexact -ffunction-cse -fgcse -fgcse-lm -fgnu-runtime
+  19              	# -fgnu-unique -fguess-branch-probability -fhoist-adjacent-loads -fident
+  20              	# -fif-conversion -fif-conversion2 -findirect-inlining -finline
+  21              	# -finline-atomics -finline-functions-called-once -finline-small-functions
+  22              	# -fipa-bit-cp -fipa-cp -fipa-icf -fipa-icf-functions -fipa-icf-variables
+  23              	# -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference -fipa-sra
+  24              	# -fipa-vrp -fira-hoist-pressure -fira-share-save-slots
+  25              	# -fira-share-spill-slots -fisolate-erroneous-paths-dereference -fivopts
+  26              	# -fkeep-static-consts -fleading-underscore -flifetime-dse -flra-remat
+  27              	# -flto-odr-type-merging -fmath-errno -fmerge-constants
+  28              	# -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
+  29              	# -foptimize-sibling-calls -foptimize-strlen -fpartial-inlining -fpeephole
+  30              	# -fpeephole2 -fplt -fprefetch-loop-arrays -free -freg-struct-return
+  31              	# -freorder-blocks -freorder-blocks-and-partition -freorder-functions
+  32              	# -frerun-cse-after-loop -fsched-critical-path-heuristic
+  33              	# -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-interblock
+  34              	# -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec
+  35              	# -fsched-spec-insn-heuristic -fsched-stalled-insns-dep -fschedule-fusion
+  36              	# -fschedule-insns2 -fsemantic-interposition -fshow-column -fshrink-wrap
+  37              	# -fshrink-wrap-separate -fsigned-zeros -fsplit-ivs-in-unroller
+  38              	# -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt
+  39              	# -fstore-merging -fstrict-aliasing -fstrict-volatile-bitfields
+  40              	# -fsync-libcalls -fthread-jumps -ftoplevel-reorder -ftrapping-math
+  41              	# -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch
+  42              	# -ftree-coalesce-vars -ftree-copy-prop -ftree-cselim -ftree-dce
+  43              	# -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
+  44              	# -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  45              	# -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pre
+  46              	# -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr
+  47              	# -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-ter
+  48              	# -ftree-vrp -funit-at-a-time -funwind-tables -fvar-tracking
+  49              	# -fvar-tracking-assignments -fverbose-asm -fzero-initialized-in-bss
+  50              	# -m128bit-long-double -m64 -m80387 -malign-stringops
+  51              	# -mavx256-split-unaligned-load -mavx256-split-unaligned-store
+  52              	# -mfancy-math-387 -mfp-ret-in-387 -mfxsr -mglibc -mieee-fp
+  53              	# -mlong-double-80 -mmmx -mno-sse4 -mpush-args -mred-zone -msse -msse2
+  54              	# -mstv -mtls-direct-seg-refs -mvzeroupper
+  55              	
+  56              		.text
+  57              	.Ltext0:
+  58              		.section	.rodata.str1.1,"aMS",@progbits,1
+  59              	.LC0:
+  60 0000 25640A00 		.string	"%d\n"
+  61              		.section	.text.startup,"ax",@progbits
+  62              		.p2align 4,,15
+  63              		.globl	main
+  65              	main:
+  66              	.LFB1700:
+  67              		.file 1 "main.cpp"
+   1:main.cpp      **** #include <iostream>
+   2:main.cpp      **** #include <stdint.h>
+   3:main.cpp      **** #include <bitset>
+   4:main.cpp      **** #include <unistd.h>
+   5:main.cpp      **** 
+   6:main.cpp      **** // 111p. 연습문제 - 5
+   7:main.cpp      **** // 다음 C언어의 f() 함수를 어셈블리어로 나타내면 다음과 같다. 빈칸을 채�
+   8:main.cpp      **** 
+   9:main.cpp      **** // extern int a, b, c;
+  10:main.cpp      **** // int f(int x) 
+  11:main.cpp      **** // {
+  12:main.cpp      **** //     return a * x * x + b * x + c;
+  13:main.cpp      **** // }
+  14:main.cpp      **** 
+  15:main.cpp      **** extern int f(int x) asm("f");
+  16:main.cpp      **** int a, b, c;
+  17:main.cpp      **** 
+  18:main.cpp      **** int main()
+  19:main.cpp      **** {
+  68              		.loc 1 19 1 view -0
+  69              		.cfi_startproc
+  20:main.cpp      ****     a = 3;
+  70              		.loc 1 20 5 view .LVU1
+  71              	# main.cpp:19: {
+  19:main.cpp      ****     a = 3;
+  72              		.loc 1 19 1 is_stmt 0 view .LVU2
+  73 0000 4883EC08 		subq	$8, %rsp	#,
+  74              		.cfi_def_cfa_offset 16
+  75              	# main.cpp:23:     printf("%d\n", f(3)); // 27 + 6 + 1
+  21:main.cpp      ****     b = 2;
+  22:main.cpp      ****     c = 1;
+  23:main.cpp      ****     printf("%d\n", f(3)); // 27 + 6 + 1
+  76              		.loc 1 23 11 view .LVU3
+  77 0004 BF030000 		movl	$3, %edi	#,
+  77      00
+  78              	# main.cpp:20:     a = 3;
+  20:main.cpp      ****     b = 2;
+  79              		.loc 1 20 7 view .LVU4
+  80 0009 C7050000 		movl	$3, a(%rip)	#, a
+  80      00000300 
+  80      0000
+  21:main.cpp      ****     b = 2;
+  81              		.loc 1 21 5 is_stmt 1 view .LVU5
+  82              	# main.cpp:21:     b = 2;
+  21:main.cpp      ****     b = 2;
+  83              		.loc 1 21 7 is_stmt 0 view .LVU6
+  84 0013 C7050000 		movl	$2, b(%rip)	#, b
+  84      00000200 
+  84      0000
+  22:main.cpp      ****     printf("%d\n", f(3)); // 27 + 6 + 1
+  85              		.loc 1 22 5 is_stmt 1 view .LVU7
+  86              	# main.cpp:22:     c = 1;
+  22:main.cpp      ****     printf("%d\n", f(3)); // 27 + 6 + 1
+  87              		.loc 1 22 7 is_stmt 0 view .LVU8
+  88 001d C7050000 		movl	$1, c(%rip)	#, c
+  88      00000100 
+  88      0000
+  89              		.loc 1 23 5 is_stmt 1 view .LVU9
+  90              	# main.cpp:23:     printf("%d\n", f(3)); // 27 + 6 + 1
+  91              		.loc 1 23 11 is_stmt 0 view .LVU10
+  92 0027 E8000000 		call	f	#
+  92      00
+  93              	.LVL0:
+  94 002c BF000000 		movl	$.LC0, %edi	#,
+  94      00
+  95 0031 89C6     		movl	%eax, %esi	# _6,
+  96 0033 31C0     		xorl	%eax, %eax	#
+  97 0035 E8000000 		call	printf	#
+  97      00
+  98              	.LVL1:
+  99              	# main.cpp:24: }
+  24:main.cpp      **** }...
+ 100              		.loc 1 24 1 view .LVU11
+ 101 003a 31C0     		xorl	%eax, %eax	#
+ 102 003c 4883C408 		addq	$8, %rsp	#,
+ 103              		.cfi_def_cfa_offset 8
+ 104 0040 C3       		ret	
+ 105              		.cfi_endproc
+ 106              	.LFE1700:
+ 108 0041 0F1F4400 		.p2align 4,,15
+ 108      00662E0F 
+ 108      1F840000 
+ 108      000000
+ 110              	_GLOBAL__sub_I_a:
+ 111              	.LFB2181:
+ 112              		.loc 1 24 1 is_stmt 1 view -0
+ 113              		.cfi_startproc
+ 114              	.LVL2:
+ 115              	.LBB4:
+ 116              	.LBI4:
+ 117              		.loc 1 24 1 view .LVU13
+ 118              	.LBE4:
+ 119 0050 4883EC08 		subq	$8, %rsp	#,
+ 120              		.cfi_def_cfa_offset 16
+ 121              	.LBB7:
+ 122              	.LBB5:
+ 123              	# /usr/include/c++/8/iostream:74:   static ios_base::Init __ioinit;
+ 124              		.file 2 "/usr/include/c++/8/iostream"
+   1:/usr/include/c++/8/iostream **** // Standard iostream objects -*- C++ -*-
+   2:/usr/include/c++/8/iostream **** 
+   3:/usr/include/c++/8/iostream **** // Copyright (C) 1997-2018 Free Software Foundation, Inc.
+   4:/usr/include/c++/8/iostream **** //
+   5:/usr/include/c++/8/iostream **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/include/c++/8/iostream **** // software; you can redistribute it and/or modify it under the
+   7:/usr/include/c++/8/iostream **** // terms of the GNU General Public License as published by the
+   8:/usr/include/c++/8/iostream **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/include/c++/8/iostream **** // any later version.
+  10:/usr/include/c++/8/iostream **** 
+  11:/usr/include/c++/8/iostream **** // This library is distributed in the hope that it will be useful,
+  12:/usr/include/c++/8/iostream **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/include/c++/8/iostream **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/include/c++/8/iostream **** // GNU General Public License for more details.
+  15:/usr/include/c++/8/iostream **** 
+  16:/usr/include/c++/8/iostream **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/include/c++/8/iostream **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/include/c++/8/iostream **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/include/c++/8/iostream **** 
+  20:/usr/include/c++/8/iostream **** // You should have received a copy of the GNU General Public License and
+  21:/usr/include/c++/8/iostream **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/include/c++/8/iostream **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/include/c++/8/iostream **** // <http://www.gnu.org/licenses/>.
+  24:/usr/include/c++/8/iostream **** 
+  25:/usr/include/c++/8/iostream **** /** @file include/iostream
+  26:/usr/include/c++/8/iostream ****  *  This is a Standard C++ Library header.
+  27:/usr/include/c++/8/iostream ****  */
+  28:/usr/include/c++/8/iostream **** 
+  29:/usr/include/c++/8/iostream **** //
+  30:/usr/include/c++/8/iostream **** // ISO C++ 14882: 27.3  Standard iostream objects
+  31:/usr/include/c++/8/iostream **** //
+  32:/usr/include/c++/8/iostream **** 
+  33:/usr/include/c++/8/iostream **** #ifndef _GLIBCXX_IOSTREAM
+  34:/usr/include/c++/8/iostream **** #define _GLIBCXX_IOSTREAM 1
+  35:/usr/include/c++/8/iostream **** 
+  36:/usr/include/c++/8/iostream **** #pragma GCC system_header
+  37:/usr/include/c++/8/iostream **** 
+  38:/usr/include/c++/8/iostream **** #include <bits/c++config.h>
+  39:/usr/include/c++/8/iostream **** #include <ostream>
+  40:/usr/include/c++/8/iostream **** #include <istream>
+  41:/usr/include/c++/8/iostream **** 
+  42:/usr/include/c++/8/iostream **** namespace std _GLIBCXX_VISIBILITY(default)
+  43:/usr/include/c++/8/iostream **** {
+  44:/usr/include/c++/8/iostream **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  45:/usr/include/c++/8/iostream **** 
+  46:/usr/include/c++/8/iostream ****   /**
+  47:/usr/include/c++/8/iostream ****    *  @name Standard Stream Objects
+  48:/usr/include/c++/8/iostream ****    *
+  49:/usr/include/c++/8/iostream ****    *  The &lt;iostream&gt; header declares the eight <em>standard stream
+  50:/usr/include/c++/8/iostream ****    *  objects</em>.  For other declarations, see
+  51:/usr/include/c++/8/iostream ****    *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/io.html
+  52:/usr/include/c++/8/iostream ****    *  and the @link iosfwd I/O forward declarations @endlink
+  53:/usr/include/c++/8/iostream ****    *
+  54:/usr/include/c++/8/iostream ****    *  They are required by default to cooperate with the global C
+  55:/usr/include/c++/8/iostream ****    *  library's @c FILE streams, and to be available during program
+  56:/usr/include/c++/8/iostream ****    *  startup and termination. For more information, see the section of the
+  57:/usr/include/c++/8/iostream ****    *  manual linked to above.
+  58:/usr/include/c++/8/iostream ****   */
+  59:/usr/include/c++/8/iostream ****   //@{
+  60:/usr/include/c++/8/iostream ****   extern istream cin;		/// Linked to standard input
+  61:/usr/include/c++/8/iostream ****   extern ostream cout;		/// Linked to standard output
+  62:/usr/include/c++/8/iostream ****   extern ostream cerr;		/// Linked to standard error (unbuffered)
+  63:/usr/include/c++/8/iostream ****   extern ostream clog;		/// Linked to standard error (buffered)
+  64:/usr/include/c++/8/iostream **** 
+  65:/usr/include/c++/8/iostream **** #ifdef _GLIBCXX_USE_WCHAR_T
+  66:/usr/include/c++/8/iostream ****   extern wistream wcin;		/// Linked to standard input
+  67:/usr/include/c++/8/iostream ****   extern wostream wcout;	/// Linked to standard output
+  68:/usr/include/c++/8/iostream ****   extern wostream wcerr;	/// Linked to standard error (unbuffered)
+  69:/usr/include/c++/8/iostream ****   extern wostream wclog;	/// Linked to standard error (buffered)
+  70:/usr/include/c++/8/iostream **** #endif
+  71:/usr/include/c++/8/iostream ****   //@}
+  72:/usr/include/c++/8/iostream **** 
+  73:/usr/include/c++/8/iostream ****   // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  74:/usr/include/c++/8/iostream ****   static ios_base::Init __ioinit;
+ 125              		.loc 2 74 25 is_stmt 0 view .LVU14
+ 126 0054 BF000000 		movl	$_ZStL8__ioinit, %edi	#,
+ 126      00
+ 127 0059 E8000000 		call	_ZNSt8ios_base4InitC1Ev	#
+ 127      00
+ 128              	.LVL3:
+ 129 005e BA000000 		movl	$__dso_handle, %edx	#,
+ 129      00
+ 130 0063 BE000000 		movl	$_ZStL8__ioinit, %esi	#,
+ 130      00
+ 131 0068 BF000000 		movl	$_ZNSt8ios_base4InitD1Ev, %edi	#,
+ 131      00
+ 132              	.LBE5:
+ 133              	.LBE7:
+ 134              	# main.cpp:24: }
+ 135              		.loc 1 24 1 view .LVU15
+ 136 006d 4883C408 		addq	$8, %rsp	#,
+ 137              		.cfi_def_cfa_offset 8
+ 138              	.LBB8:
+ 139              	.LBB6:
+ 140              	# /usr/include/c++/8/iostream:74:   static ios_base::Init __ioinit;
+ 141              		.loc 2 74 25 view .LVU16
+ 142 0071 E9000000 		jmp	__cxa_atexit	#
+ 142      00
+ 143              	.LVL4:
+ 144              	.LBE6:
+ 145              	.LBE8:
+ 146              		.cfi_endproc
+ 147              	.LFE2181:
+ 149              		.section	.init_array,"aw"
+ 150              		.align 8
+ 151 0000 00000000 		.quad	_GLOBAL__sub_I_a
+ 151      00000000 
+ 152              		.globl	c
+ 153              		.bss
+ 154              		.align 4
+ 157              	c:
+ 158 0000 00000000 		.zero	4
+ 159              		.globl	b
+ 160              		.align 4
+ 163              	b:
+ 164 0004 00000000 		.zero	4
+ 165              		.globl	a
+ 166              		.align 4
+ 169              	a:
+ 170 0008 00000000 		.zero	4
+ 171              		.local	_ZStL8__ioinit
+ 172              		.comm	_ZStL8__ioinit,1,1
+ 173              		.text
+ 174              	.Letext0:
+ 175              		.file 3 "/usr/include/c++/8/cwchar"
+ 176              		.file 4 "/usr/include/c++/8/new"
+ 177              		.file 5 "/usr/include/c++/8/bits/exception_ptr.h"
+ 178              		.file 6 "/usr/include/c++/8/type_traits"
+ 179              		.file 7 "/usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h"
+ 180              		.file 8 "/usr/include/c++/8/bits/stl_pair.h"
+ 181              		.file 9 "/usr/include/c++/8/debug/debug.h"
+ 182              		.file 10 "/usr/include/c++/8/bits/char_traits.h"
+ 183              		.file 11 "/usr/include/c++/8/cstdint"
+ 184              		.file 12 "/usr/include/c++/8/clocale"
+ 185              		.file 13 "/usr/include/c++/8/cstdlib"
+ 186              		.file 14 "/usr/include/c++/8/cstdio"
+ 187              		.file 15 "/usr/include/c++/8/bits/basic_string.h"
+ 188              		.file 16 "/usr/include/c++/8/system_error"
+ 189              		.file 17 "/usr/include/c++/8/bits/ios_base.h"
+ 190              		.file 18 "/usr/include/c++/8/cwctype"
+ 191              		.file 19 "/usr/include/c++/8/iosfwd"
+ 192              		.file 20 "/usr/include/c++/8/bits/predefined_ops.h"
+ 193              		.file 21 "/usr/include/c++/8/ext/new_allocator.h"
+ 194              		.file 22 "/usr/include/c++/8/ext/numeric_traits.h"
+ 195              		.file 23 "/usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h"
+ 196              		.file 24 "<built-in>"
+ 197              		.file 25 "/usr/include/bits/types/wint_t.h"
+ 198              		.file 26 "/usr/include/bits/types/__mbstate_t.h"
+ 199              		.file 27 "/usr/include/bits/types/mbstate_t.h"
+ 200              		.file 28 "/usr/include/bits/types/__FILE.h"
+ 201              		.file 29 "/usr/include/bits/types/struct_FILE.h"
+ 202              		.file 30 "/usr/include/bits/types/FILE.h"
+ 203              		.file 31 "/usr/include/wchar.h"
+ 204              		.file 32 "/usr/include/bits/types/struct_tm.h"
+ 205              		.file 33 "/usr/include/bits/types.h"
+ 206              		.file 34 "/usr/include/bits/stdint-intn.h"
+ 207              		.file 35 "/usr/include/bits/stdint-uintn.h"
+ 208              		.file 36 "/usr/include/stdint.h"
+ 209              		.file 37 "/usr/include/locale.h"
+ 210              		.file 38 "/usr/include/time.h"
+ 211              		.file 39 "/usr/include/c++/8/x86_64-redhat-linux/bits/atomic_word.h"
+ 212              		.file 40 "/usr/include/stdlib.h"
+ 213              		.file 41 "/usr/include/bits/stdlib-float.h"
+ 214              		.file 42 "/usr/include/bits/stdlib-bsearch.h"
+ 215              		.file 43 "/usr/include/bits/types/__fpos_t.h"
+ 216              		.file 44 "/usr/include/stdio.h"
+ 217              		.file 45 "/usr/include/bits/sys_errlist.h"
+ 218              		.file 46 "/usr/include/bits/stdio.h"
+ 219              		.file 47 "/usr/include/errno.h"
+ 220              		.file 48 "/usr/include/bits/wctype-wchar.h"
+ 221              		.file 49 "/usr/include/wctype.h"
+ 222              		.file 50 "/usr/include/unistd.h"
+ 223              		.file 51 "/usr/include/bits/getopt_core.h"
+ 224              		.file 52 "/usr/include/bits/confname.h"

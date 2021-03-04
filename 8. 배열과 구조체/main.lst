@@ -1,0 +1,653 @@
+   1              		.file	"main.cpp"
+   2              		.intel_syntax noprefix
+   3              		.text
+   4              	.Ltext0:
+   5              		.section	.rodata
+   8              	_ZStL19piecewise_construct:
+   9 0000 00       		.zero	1
+  10              		.local	_ZStL8__ioinit
+  11              		.comm	_ZStL8__ioinit,1,1
+  12              	.LC0:
+  13 0001 ECB488EA 		.string	"\354\264\210\352\270\260\355\231\224\353\220\234 \353\260\260\354\227\264"
+  13      B8B0ED99 
+  13      94EB909C 
+  13      20EBB0B0 
+  13      EC97B400 
+  14              	.LC1:
+  15 0015 25640900 		.string	"%d\t"
+  16              	.LC2:
+  17 0019 0A3D3D3D 		.string	"\n======================"
+  17      3D3D3D3D 
+  17      3D3D3D3D 
+  17      3D3D3D3D 
+  17      3D3D3D3D 
+  18              	.LC3:
+  19 0031 ECA780EC 		.string	"\354\247\200\354\227\255\353\263\200\354\210\230\353\241\234\354\204\234\354\235\230 \353
+  19      97ADEBB3 
+  19      80EC8898 
+  19      EBA19CEC 
+  19      849CEC9D 
+  20 004e 0000     		.align 8
+  21              	.LC4:
+  22 0050 65646920 		.string	"edi \353\252\205\353\240\271\354\226\264 \354\202\254\354\232\251 - \353\247\244\352\260\
+  22      EBAA85EB 
+  22      A0B9EC96 
+  22      B420EC82 
+  22      ACEC9AA9 
+  23              	.LC5:
+  24 0082 25642000 		.string	"%d "
+  25 0086 0000     		.align 8
+  26              	.LC6:
+  27 0088 65736920 		.string	"esi \353\252\205\353\240\271\354\226\264 \354\202\254\354\232\251 - \353\247\244\352\260\
+  27      EBAA85EB 
+  27      A0B9EC96 
+  27      B420EC82 
+  27      ACEC9AA9 
+  28 00ba 00000000 		.align 8
+  28      0000
+  29              	.LC7:
+  30 00c0 65736920 		.string	"esi \353\252\205\353\240\271\354\226\264 \354\202\254\354\232\251 - \354\247\200\354\227\
+  30      EBAA85EB 
+  30      A0B9EC96 
+  30      B420EC82 
+  30      ACEC9AA9 
+  31 00f2 00000000 		.align 8
+  31      0000
+  32              	.LC8:
+  33 00f8 64697265 		.string	"direction flag \355\231\225\354\235\270 - \354\247\200\354\227\255\353\263\200\354\210\23
+  33      6374696F 
+  33      6E20666C 
+  33      616720ED 
+  33      9995EC9D 
+  34 012b 00000000 		.align 8
+  34      00
+  35              	.LC9:
+  36 0130 64697265 		.string	"direction flag \355\231\225\354\235\270 - \353\247\244\352\260\234\353\263\200\354\210\23
+  36      6374696F 
+  36      6E20666C 
+  36      616720ED 
+  36      9995EC9D 
+  37              	.LC10:
+  38 0163 3E3E20EC 		.string	">> \354\233\220\353\263\270 \353\260\260\354\227\264 \354\210\234\354\204\234"
+  38      9B90EBB3 
+  38      B820EBB0 
+  38      B0EC97B4 
+  38      20EC889C 
+  39              	.LC11:
+  40 017b 3E3E20EB 		.string	">> \353\260\230\353\214\200\353\241\234 \354\235\275\352\270\260"
+  40      B098EB8C 
+  40      80EBA19C 
+  40      20EC9DBD 
+  40      EAB8B000 
+  41              		.text
+  42              		.globl	main
+  44              	main:
+  45              	.LFB1678:
+  46              		.file 1 "main.cpp"
+   1:main.cpp      **** #include <iostream>
+   2:main.cpp      **** #include <stdint.h>
+   3:main.cpp      **** #include <bitset>
+   4:main.cpp      **** #include <ctime>
+   5:main.cpp      **** 
+   6:main.cpp      **** // 초기화된 배열
+   7:main.cpp      **** extern int arr[];
+   8:main.cpp      **** extern int arr_len;
+   9:main.cpp      **** 
+  10:main.cpp      **** extern int brr[];
+  11:main.cpp      **** extern int brr_len;
+  12:main.cpp      **** 
+  13:main.cpp      **** // 지역변수로서의 배열
+  14:main.cpp      **** extern void local_arr_test() asm("local_arr_test");
+  15:main.cpp      **** 
+  16:main.cpp      **** // esi, edi, lodsd, stosd 명령어 사용 - 매개변수 배열 사용
+  17:main.cpp      **** extern void esi_local_arr_test()                    asm("esi_local_arr_test");
+  18:main.cpp      **** extern void edi_param_arr_test(int _arr[], int len) asm("edi_param_arr_test");
+  19:main.cpp      **** extern void esi_param_arr_test(int _arr[], int len) asm("esi_param_arr_test");
+  20:main.cpp      **** 
+  21:main.cpp      **** // direction flag 확인
+  22:main.cpp      **** extern void direction_flag_local_arr_test()                     asm("direction_flag_local_arr_test"
+  23:main.cpp      **** extern void direction_flag_param_arr_test(int _arr[], int len)  asm("direction_flag_param_arr_test"
+  24:main.cpp      **** 
+  25:main.cpp      **** int main(int argc, char* argv[])
+  26:main.cpp      **** {
+  47              		.loc 1 26 1
+  48              		.cfi_startproc
+  49 0000 55       		push	rbp
+  50              		.cfi_def_cfa_offset 16
+  51              		.cfi_offset 6, -16
+  52 0001 4889E5   		mov	rbp, rsp
+  53              		.cfi_def_cfa_register 6
+  54 0004 4883EC60 		sub	rsp, 96
+  55 0008 897DAC   		mov	DWORD PTR [rbp-84], edi
+  56 000b 488975A0 		mov	QWORD PTR [rbp-96], rsi
+  27:main.cpp      ****     time_t t = time(NULL);
+  57              		.loc 1 27 20
+  58 000f BF000000 		mov	edi, 0
+  58      00
+  59 0014 E8000000 		call	time
+  59      00
+  60              		.loc 1 27 25
+  61 0019 488945E0 		mov	QWORD PTR [rbp-32], rax
+  28:main.cpp      ****     stime(&t);
+  62              		.loc 1 28 10
+  63 001d 488D45E0 		lea	rax, [rbp-32]
+  64 0021 4889C7   		mov	rdi, rax
+  65 0024 E8000000 		call	stime
+  65      00
+  29:main.cpp      **** 
+  30:main.cpp      ****     // 초기화된 배열
+  31:main.cpp      ****     printf("초기화된 배열\n");
+  66              		.loc 1 31 11
+  67 0029 BF000000 		mov	edi, OFFSET FLAT:.LC0
+  67      00
+  68 002e E8000000 		call	puts
+  68      00
+  69              	.LBB2:
+  32:main.cpp      ****     for (int i = 0; i < arr_len; i++)
+  70              		.loc 1 32 14
+  71 0033 C745FC00 		mov	DWORD PTR [rbp-4], 0
+  71      000000
+  72              	.L3:
+  73              		.loc 1 32 23 discriminator 1
+  74 003a 8B050000 		mov	eax, DWORD PTR arr_len[rip]
+  74      0000
+  75 0040 3945FC   		cmp	DWORD PTR [rbp-4], eax
+  76 0043 7D23     		jge	.L2
+  33:main.cpp      ****         printf("%d\t", arr[i]);
+  77              		.loc 1 33 15
+  78 0045 8B45FC   		mov	eax, DWORD PTR [rbp-4]
+  79 0048 4898     		cdqe
+  80 004a 8B048500 		mov	eax, DWORD PTR arr[0+rax*4]
+  80      000000
+  81 0051 89C6     		mov	esi, eax
+  82 0053 BF000000 		mov	edi, OFFSET FLAT:.LC1
+  82      00
+  83 0058 B8000000 		mov	eax, 0
+  83      00
+  84 005d E8000000 		call	printf
+  84      00
+  32:main.cpp      ****     for (int i = 0; i < arr_len; i++)
+  85              		.loc 1 32 5
+  86 0062 8345FC01 		add	DWORD PTR [rbp-4], 1
+  87 0066 EBD2     		jmp	.L3
+  88              	.L2:
+  89              	.LBE2:
+  34:main.cpp      ****     printf("\n======================\n");
+  90              		.loc 1 34 11
+  91 0068 BF000000 		mov	edi, OFFSET FLAT:.LC2
+  91      00
+  92 006d E8000000 		call	puts
+  92      00
+  93              	.LBB3:
+  35:main.cpp      ****     for (int i = 0; i < brr_len; i++)
+  94              		.loc 1 35 14
+  95 0072 C745F800 		mov	DWORD PTR [rbp-8], 0
+  95      000000
+  96              	.L5:
+  97              		.loc 1 35 23 discriminator 1
+  98 0079 8B050000 		mov	eax, DWORD PTR brr_len[rip]
+  98      0000
+  99 007f 3945F8   		cmp	DWORD PTR [rbp-8], eax
+ 100 0082 7D23     		jge	.L4
+  36:main.cpp      ****         printf("%d\t", brr[i]);
+ 101              		.loc 1 36 15
+ 102 0084 8B45F8   		mov	eax, DWORD PTR [rbp-8]
+ 103 0087 4898     		cdqe
+ 104 0089 8B048500 		mov	eax, DWORD PTR brr[0+rax*4]
+ 104      000000
+ 105 0090 89C6     		mov	esi, eax
+ 106 0092 BF000000 		mov	edi, OFFSET FLAT:.LC1
+ 106      00
+ 107 0097 B8000000 		mov	eax, 0
+ 107      00
+ 108 009c E8000000 		call	printf
+ 108      00
+  35:main.cpp      ****     for (int i = 0; i < brr_len; i++)
+ 109              		.loc 1 35 5
+ 110 00a1 8345F801 		add	DWORD PTR [rbp-8], 1
+ 111 00a5 EBD2     		jmp	.L5
+ 112              	.L4:
+ 113              	.LBE3:
+  37:main.cpp      ****     printf("\n======================\n");
+ 114              		.loc 1 37 11
+ 115 00a7 BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 115      00
+ 116 00ac E8000000 		call	puts
+ 116      00
+  38:main.cpp      **** 
+  39:main.cpp      ****     // 지역변수로서의 배열
+  40:main.cpp      ****     printf("지역변수로서의 배열\n");
+ 117              		.loc 1 40 11
+ 118 00b1 BF000000 		mov	edi, OFFSET FLAT:.LC3
+ 118      00
+ 119 00b6 E8000000 		call	puts
+ 119      00
+  41:main.cpp      ****     local_arr_test();
+ 120              		.loc 1 41 19
+ 121 00bb E8000000 		call	local_arr_test
+ 121      00
+  42:main.cpp      ****     printf("\n======================\n");
+ 122              		.loc 1 42 11
+ 123 00c0 BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 123      00
+ 124 00c5 E8000000 		call	puts
+ 124      00
+  43:main.cpp      **** 
+  44:main.cpp      ****     // edi 명령어 사용 - 매개변수 배열 사용   
+  45:main.cpp      ****     printf("edi 명령어 사용 - 매개변수 배열 사용\n");
+ 125              		.loc 1 45 11
+ 126 00ca BF000000 		mov	edi, OFFSET FLAT:.LC4
+ 126      00
+ 127 00cf E8000000 		call	puts
+ 127      00
+  46:main.cpp      ****     int a[10] = {0, };
+ 128              		.loc 1 46 9
+ 129 00d4 48C745B0 		mov	QWORD PTR [rbp-80], 0
+ 129      00000000 
+ 130 00dc 48C745B8 		mov	QWORD PTR [rbp-72], 0
+ 130      00000000 
+ 131 00e4 48C745C0 		mov	QWORD PTR [rbp-64], 0
+ 131      00000000 
+ 132 00ec 48C745C8 		mov	QWORD PTR [rbp-56], 0
+ 132      00000000 
+ 133 00f4 48C745D0 		mov	QWORD PTR [rbp-48], 0
+ 133      00000000 
+  47:main.cpp      **** 
+  48:main.cpp      ****     edi_param_arr_test(a, 10);
+ 134              		.loc 1 48 23
+ 135 00fc 488D45B0 		lea	rax, [rbp-80]
+ 136 0100 BE0A0000 		mov	esi, 10
+ 136      00
+ 137 0105 4889C7   		mov	rdi, rax
+ 138 0108 E8000000 		call	edi_param_arr_test
+ 138      00
+ 139              	.LBB4:
+  49:main.cpp      **** 
+  50:main.cpp      ****     for (int i = 0; i < 10; i++)
+ 140              		.loc 1 50 14
+ 141 010d C745F400 		mov	DWORD PTR [rbp-12], 0
+ 141      000000
+ 142              	.L7:
+ 143              		.loc 1 50 23 discriminator 1
+ 144 0114 837DF409 		cmp	DWORD PTR [rbp-12], 9
+ 145 0118 7F20     		jg	.L6
+  51:main.cpp      ****         printf("%d ", a[i]);
+ 146              		.loc 1 51 15
+ 147 011a 8B45F4   		mov	eax, DWORD PTR [rbp-12]
+ 148 011d 4898     		cdqe
+ 149 011f 8B4485B0 		mov	eax, DWORD PTR [rbp-80+rax*4]
+ 150 0123 89C6     		mov	esi, eax
+ 151 0125 BF000000 		mov	edi, OFFSET FLAT:.LC5
+ 151      00
+ 152 012a B8000000 		mov	eax, 0
+ 152      00
+ 153 012f E8000000 		call	printf
+ 153      00
+  50:main.cpp      ****         printf("%d ", a[i]);
+ 154              		.loc 1 50 5
+ 155 0134 8345F401 		add	DWORD PTR [rbp-12], 1
+ 156 0138 EBDA     		jmp	.L7
+ 157              	.L6:
+ 158              	.LBE4:
+  52:main.cpp      ****     printf("\n======================\n");
+ 159              		.loc 1 52 11
+ 160 013a BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 160      00
+ 161 013f E8000000 		call	puts
+ 161      00
+ 162              	.LBB5:
+  53:main.cpp      **** 
+  54:main.cpp      ****     for (int i =0; i < 10; i++)
+ 163              		.loc 1 54 14
+ 164 0144 C745F000 		mov	DWORD PTR [rbp-16], 0
+ 164      000000
+ 165              	.L9:
+ 166              		.loc 1 54 22 discriminator 3
+ 167 014b 837DF009 		cmp	DWORD PTR [rbp-16], 9
+ 168 014f 7F33     		jg	.L8
+  55:main.cpp      ****         a[i] = rand() % 100;
+ 169              		.loc 1 55 20 discriminator 2
+ 170 0151 E8000000 		call	rand
+ 170      00
+ 171 0156 89C1     		mov	ecx, eax
+ 172              		.loc 1 55 23 discriminator 2
+ 173 0158 BA1F85EB 		mov	edx, 1374389535
+ 173      51
+ 174 015d 89C8     		mov	eax, ecx
+ 175 015f F7EA     		imul	edx
+ 176 0161 C1FA05   		sar	edx, 5
+ 177 0164 89C8     		mov	eax, ecx
+ 178 0166 C1F81F   		sar	eax, 31
+ 179 0169 29C2     		sub	edx, eax
+ 180 016b 89D0     		mov	eax, edx
+ 181 016d 6BC064   		imul	eax, eax, 100
+ 182 0170 29C1     		sub	ecx, eax
+ 183 0172 89C8     		mov	eax, ecx
+ 184              		.loc 1 55 14 discriminator 2
+ 185 0174 8B55F0   		mov	edx, DWORD PTR [rbp-16]
+ 186 0177 4863D2   		movsx	rdx, edx
+ 187 017a 894495B0 		mov	DWORD PTR [rbp-80+rdx*4], eax
+  54:main.cpp      ****         a[i] = rand() % 100;
+ 188              		.loc 1 54 5 discriminator 2
+ 189 017e 8345F001 		add	DWORD PTR [rbp-16], 1
+ 190 0182 EBC7     		jmp	.L9
+ 191              	.L8:
+ 192              	.LBE5:
+  56:main.cpp      **** 
+  57:main.cpp      ****     // esi 명령어 사용 - 매개변수 배열 사용   
+  58:main.cpp      ****     printf("esi 명령어 사용 - 매개변수 배열 사용\n");
+ 193              		.loc 1 58 11
+ 194 0184 BF000000 		mov	edi, OFFSET FLAT:.LC6
+ 194      00
+ 195 0189 E8000000 		call	puts
+ 195      00
+  59:main.cpp      ****     esi_param_arr_test(a, 10);
+ 196              		.loc 1 59 23
+ 197 018e 488D45B0 		lea	rax, [rbp-80]
+ 198 0192 BE0A0000 		mov	esi, 10
+ 198      00
+ 199 0197 4889C7   		mov	rdi, rax
+ 200 019a E8000000 		call	esi_param_arr_test
+ 200      00
+  60:main.cpp      ****     printf("\n======================\n");
+ 201              		.loc 1 60 11
+ 202 019f BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 202      00
+ 203 01a4 E8000000 		call	puts
+ 203      00
+  61:main.cpp      **** 
+  62:main.cpp      ****     // esi 명령어 사용 - 지역변수 배열 사용
+  63:main.cpp      ****     printf("esi 명령어 사용 - 지역변수 배열 사용\n");
+ 204              		.loc 1 63 11
+ 205 01a9 BF000000 		mov	edi, OFFSET FLAT:.LC7
+ 205      00
+ 206 01ae E8000000 		call	puts
+ 206      00
+  64:main.cpp      ****     esi_local_arr_test();
+ 207              		.loc 1 64 23
+ 208 01b3 E8000000 		call	esi_local_arr_test
+ 208      00
+  65:main.cpp      **** 
+  66:main.cpp      ****     // direction flag 확인
+  67:main.cpp      ****     printf("direction flag 확인 - 지역변수 배열 사용\n");
+ 209              		.loc 1 67 11
+ 210 01b8 BF000000 		mov	edi, OFFSET FLAT:.LC8
+ 210      00
+ 211 01bd E8000000 		call	puts
+ 211      00
+  68:main.cpp      ****     direction_flag_local_arr_test();
+ 212              		.loc 1 68 34
+ 213 01c2 E8000000 		call	direction_flag_local_arr_test
+ 213      00
+  69:main.cpp      ****     printf("\n======================\n");
+ 214              		.loc 1 69 11
+ 215 01c7 BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 215      00
+ 216 01cc E8000000 		call	puts
+ 216      00
+  70:main.cpp      **** 
+  71:main.cpp      ****     printf("direction flag 확인 - 매개변수 배열 사용\n");
+ 217              		.loc 1 71 11
+ 218 01d1 BF000000 		mov	edi, OFFSET FLAT:.LC9
+ 218      00
+ 219 01d6 E8000000 		call	puts
+ 219      00
+  72:main.cpp      **** 
+  73:main.cpp      ****     printf(">> 원본 배열 순서\n");
+ 220              		.loc 1 73 11
+ 221 01db BF000000 		mov	edi, OFFSET FLAT:.LC10
+ 221      00
+ 222 01e0 E8000000 		call	puts
+ 222      00
+ 223              	.LBB6:
+  74:main.cpp      ****     for (int i = 0; i < 10; i++)
+ 224              		.loc 1 74 14
+ 225 01e5 C745EC00 		mov	DWORD PTR [rbp-20], 0
+ 225      000000
+ 226              	.L11:
+ 227              		.loc 1 74 23 discriminator 1
+ 228 01ec 837DEC09 		cmp	DWORD PTR [rbp-20], 9
+ 229 01f0 7F20     		jg	.L10
+  75:main.cpp      ****         printf("%d ", a[i]);
+ 230              		.loc 1 75 15
+ 231 01f2 8B45EC   		mov	eax, DWORD PTR [rbp-20]
+ 232 01f5 4898     		cdqe
+ 233 01f7 8B4485B0 		mov	eax, DWORD PTR [rbp-80+rax*4]
+ 234 01fb 89C6     		mov	esi, eax
+ 235 01fd BF000000 		mov	edi, OFFSET FLAT:.LC5
+ 235      00
+ 236 0202 B8000000 		mov	eax, 0
+ 236      00
+ 237 0207 E8000000 		call	printf
+ 237      00
+  74:main.cpp      ****     for (int i = 0; i < 10; i++)
+ 238              		.loc 1 74 5
+ 239 020c 8345EC01 		add	DWORD PTR [rbp-20], 1
+ 240 0210 EBDA     		jmp	.L11
+ 241              	.L10:
+ 242              	.LBE6:
+  76:main.cpp      ****     printf("\n======================\n");
+ 243              		.loc 1 76 11
+ 244 0212 BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 244      00
+ 245 0217 E8000000 		call	puts
+ 245      00
+  77:main.cpp      ****     printf(">> 반대로 읽기\n");
+ 246              		.loc 1 77 11
+ 247 021c BF000000 		mov	edi, OFFSET FLAT:.LC11
+ 247      00
+ 248 0221 E8000000 		call	puts
+ 248      00
+  78:main.cpp      ****     direction_flag_param_arr_test(a, 10);
+ 249              		.loc 1 78 34
+ 250 0226 488D45B0 		lea	rax, [rbp-80]
+ 251 022a BE0A0000 		mov	esi, 10
+ 251      00
+ 252 022f 4889C7   		mov	rdi, rax
+ 253 0232 E8000000 		call	direction_flag_param_arr_test
+ 253      00
+  79:main.cpp      ****     printf("\n======================\n");
+ 254              		.loc 1 79 11
+ 255 0237 BF000000 		mov	edi, OFFSET FLAT:.LC2
+ 255      00
+ 256 023c E8000000 		call	puts
+ 256      00
+  80:main.cpp      **** }...
+ 257              		.loc 1 80 1
+ 258 0241 B8000000 		mov	eax, 0
+ 258      00
+ 259 0246 C9       		leave
+ 260              		.cfi_def_cfa 7, 8
+ 261 0247 C3       		ret
+ 262              		.cfi_endproc
+ 263              	.LFE1678:
+ 266              	_Z41__static_initialization_and_destruction_0ii:
+ 267              	.LFB2159:
+ 268              		.loc 1 80 1
+ 269              		.cfi_startproc
+ 270 0248 55       		push	rbp
+ 271              		.cfi_def_cfa_offset 16
+ 272              		.cfi_offset 6, -16
+ 273 0249 4889E5   		mov	rbp, rsp
+ 274              		.cfi_def_cfa_register 6
+ 275 024c 4883EC10 		sub	rsp, 16
+ 276 0250 897DFC   		mov	DWORD PTR [rbp-4], edi
+ 277 0253 8975F8   		mov	DWORD PTR [rbp-8], esi
+ 278              		.loc 1 80 1
+ 279 0256 837DFC01 		cmp	DWORD PTR [rbp-4], 1
+ 280 025a 7527     		jne	.L15
+ 281              		.loc 1 80 1 is_stmt 0 discriminator 1
+ 282 025c 817DF8FF 		cmp	DWORD PTR [rbp-8], 65535
+ 282      FF0000
+ 283 0263 751E     		jne	.L15
+ 284              		.file 2 "/usr/include/c++/8/iostream"
+   1:/usr/include/c++/8/iostream **** // Standard iostream objects -*- C++ -*-
+   2:/usr/include/c++/8/iostream **** 
+   3:/usr/include/c++/8/iostream **** // Copyright (C) 1997-2018 Free Software Foundation, Inc.
+   4:/usr/include/c++/8/iostream **** //
+   5:/usr/include/c++/8/iostream **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/include/c++/8/iostream **** // software; you can redistribute it and/or modify it under the
+   7:/usr/include/c++/8/iostream **** // terms of the GNU General Public License as published by the
+   8:/usr/include/c++/8/iostream **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/include/c++/8/iostream **** // any later version.
+  10:/usr/include/c++/8/iostream **** 
+  11:/usr/include/c++/8/iostream **** // This library is distributed in the hope that it will be useful,
+  12:/usr/include/c++/8/iostream **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/include/c++/8/iostream **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/usr/include/c++/8/iostream **** // GNU General Public License for more details.
+  15:/usr/include/c++/8/iostream **** 
+  16:/usr/include/c++/8/iostream **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/include/c++/8/iostream **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/include/c++/8/iostream **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/include/c++/8/iostream **** 
+  20:/usr/include/c++/8/iostream **** // You should have received a copy of the GNU General Public License and
+  21:/usr/include/c++/8/iostream **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/include/c++/8/iostream **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/include/c++/8/iostream **** // <http://www.gnu.org/licenses/>.
+  24:/usr/include/c++/8/iostream **** 
+  25:/usr/include/c++/8/iostream **** /** @file include/iostream
+  26:/usr/include/c++/8/iostream ****  *  This is a Standard C++ Library header.
+  27:/usr/include/c++/8/iostream ****  */
+  28:/usr/include/c++/8/iostream **** 
+  29:/usr/include/c++/8/iostream **** //
+  30:/usr/include/c++/8/iostream **** // ISO C++ 14882: 27.3  Standard iostream objects
+  31:/usr/include/c++/8/iostream **** //
+  32:/usr/include/c++/8/iostream **** 
+  33:/usr/include/c++/8/iostream **** #ifndef _GLIBCXX_IOSTREAM
+  34:/usr/include/c++/8/iostream **** #define _GLIBCXX_IOSTREAM 1
+  35:/usr/include/c++/8/iostream **** 
+  36:/usr/include/c++/8/iostream **** #pragma GCC system_header
+  37:/usr/include/c++/8/iostream **** 
+  38:/usr/include/c++/8/iostream **** #include <bits/c++config.h>
+  39:/usr/include/c++/8/iostream **** #include <ostream>
+  40:/usr/include/c++/8/iostream **** #include <istream>
+  41:/usr/include/c++/8/iostream **** 
+  42:/usr/include/c++/8/iostream **** namespace std _GLIBCXX_VISIBILITY(default)
+  43:/usr/include/c++/8/iostream **** {
+  44:/usr/include/c++/8/iostream **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  45:/usr/include/c++/8/iostream **** 
+  46:/usr/include/c++/8/iostream ****   /**
+  47:/usr/include/c++/8/iostream ****    *  @name Standard Stream Objects
+  48:/usr/include/c++/8/iostream ****    *
+  49:/usr/include/c++/8/iostream ****    *  The &lt;iostream&gt; header declares the eight <em>standard stream
+  50:/usr/include/c++/8/iostream ****    *  objects</em>.  For other declarations, see
+  51:/usr/include/c++/8/iostream ****    *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/io.html
+  52:/usr/include/c++/8/iostream ****    *  and the @link iosfwd I/O forward declarations @endlink
+  53:/usr/include/c++/8/iostream ****    *
+  54:/usr/include/c++/8/iostream ****    *  They are required by default to cooperate with the global C
+  55:/usr/include/c++/8/iostream ****    *  library's @c FILE streams, and to be available during program
+  56:/usr/include/c++/8/iostream ****    *  startup and termination. For more information, see the section of the
+  57:/usr/include/c++/8/iostream ****    *  manual linked to above.
+  58:/usr/include/c++/8/iostream ****   */
+  59:/usr/include/c++/8/iostream ****   //@{
+  60:/usr/include/c++/8/iostream ****   extern istream cin;		/// Linked to standard input
+  61:/usr/include/c++/8/iostream ****   extern ostream cout;		/// Linked to standard output
+  62:/usr/include/c++/8/iostream ****   extern ostream cerr;		/// Linked to standard error (unbuffered)
+  63:/usr/include/c++/8/iostream ****   extern ostream clog;		/// Linked to standard error (buffered)
+  64:/usr/include/c++/8/iostream **** 
+  65:/usr/include/c++/8/iostream **** #ifdef _GLIBCXX_USE_WCHAR_T
+  66:/usr/include/c++/8/iostream ****   extern wistream wcin;		/// Linked to standard input
+  67:/usr/include/c++/8/iostream ****   extern wostream wcout;	/// Linked to standard output
+  68:/usr/include/c++/8/iostream ****   extern wostream wcerr;	/// Linked to standard error (unbuffered)
+  69:/usr/include/c++/8/iostream ****   extern wostream wclog;	/// Linked to standard error (buffered)
+  70:/usr/include/c++/8/iostream **** #endif
+  71:/usr/include/c++/8/iostream ****   //@}
+  72:/usr/include/c++/8/iostream **** 
+  73:/usr/include/c++/8/iostream ****   // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  74:/usr/include/c++/8/iostream ****   static ios_base::Init __ioinit;
+ 285              		.loc 2 74 25 is_stmt 1
+ 286 0265 BF000000 		mov	edi, OFFSET FLAT:_ZStL8__ioinit
+ 286      00
+ 287 026a E8000000 		call	_ZNSt8ios_base4InitC1Ev
+ 287      00
+ 288 026f BA000000 		mov	edx, OFFSET FLAT:__dso_handle
+ 288      00
+ 289 0274 BE000000 		mov	esi, OFFSET FLAT:_ZStL8__ioinit
+ 289      00
+ 290 0279 BF000000 		mov	edi, OFFSET FLAT:_ZNSt8ios_base4InitD1Ev
+ 290      00
+ 291 027e E8000000 		call	__cxa_atexit
+ 291      00
+ 292              	.L15:
+ 293              		.loc 1 80 1
+ 294 0283 90       		nop
+ 295 0284 C9       		leave
+ 296              		.cfi_def_cfa 7, 8
+ 297 0285 C3       		ret
+ 298              		.cfi_endproc
+ 299              	.LFE2159:
+ 302              	_GLOBAL__sub_I_main:
+ 303              	.LFB2160:
+ 304              		.loc 1 80 1
+ 305              		.cfi_startproc
+ 306 0286 55       		push	rbp
+ 307              		.cfi_def_cfa_offset 16
+ 308              		.cfi_offset 6, -16
+ 309 0287 4889E5   		mov	rbp, rsp
+ 310              		.cfi_def_cfa_register 6
+ 311              		.loc 1 80 1
+ 312 028a BEFFFF00 		mov	esi, 65535
+ 312      00
+ 313 028f BF010000 		mov	edi, 1
+ 313      00
+ 314 0294 E8AFFFFF 		call	_Z41__static_initialization_and_destruction_0ii
+ 314      FF
+ 315 0299 5D       		pop	rbp
+ 316              		.cfi_def_cfa 7, 8
+ 317 029a C3       		ret
+ 318              		.cfi_endproc
+ 319              	.LFE2160:
+ 321              		.section	.init_array,"aw"
+ 322              		.align 8
+ 323 0000 00000000 		.quad	_GLOBAL__sub_I_main
+ 323      00000000 
+ 324              		.text
+ 325              	.Letext0:
+ 326              		.file 3 "/usr/include/c++/8/cwchar"
+ 327              		.file 4 "/usr/include/c++/8/new"
+ 328              		.file 5 "/usr/include/c++/8/bits/exception_ptr.h"
+ 329              		.file 6 "/usr/include/c++/8/type_traits"
+ 330              		.file 7 "/usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h"
+ 331              		.file 8 "/usr/include/c++/8/bits/cpp_type_traits.h"
+ 332              		.file 9 "/usr/include/c++/8/bits/stl_pair.h"
+ 333              		.file 10 "/usr/include/c++/8/debug/debug.h"
+ 334              		.file 11 "/usr/include/c++/8/bits/char_traits.h"
+ 335              		.file 12 "/usr/include/c++/8/cstdint"
+ 336              		.file 13 "/usr/include/c++/8/clocale"
+ 337              		.file 14 "/usr/include/c++/8/cstdlib"
+ 338              		.file 15 "/usr/include/c++/8/cstdio"
+ 339              		.file 16 "/usr/include/c++/8/bits/basic_string.h"
+ 340              		.file 17 "/usr/include/c++/8/system_error"
+ 341              		.file 18 "/usr/include/c++/8/bits/ios_base.h"
+ 342              		.file 19 "/usr/include/c++/8/cwctype"
+ 343              		.file 20 "/usr/include/c++/8/iosfwd"
+ 344              		.file 21 "/usr/include/c++/8/ctime"
+ 345              		.file 22 "/usr/include/c++/8/bits/predefined_ops.h"
+ 346              		.file 23 "/usr/include/c++/8/ext/new_allocator.h"
+ 347              		.file 24 "/usr/include/c++/8/ext/numeric_traits.h"
+ 348              		.file 25 "/usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h"
+ 349              		.file 26 "<built-in>"
+ 350              		.file 27 "/usr/include/bits/types/wint_t.h"
+ 351              		.file 28 "/usr/include/bits/types/__mbstate_t.h"
+ 352              		.file 29 "/usr/include/bits/types/mbstate_t.h"
+ 353              		.file 30 "/usr/include/bits/types/__FILE.h"
+ 354              		.file 31 "/usr/include/bits/types/struct_FILE.h"
+ 355              		.file 32 "/usr/include/bits/types/FILE.h"
+ 356              		.file 33 "/usr/include/wchar.h"
+ 357              		.file 34 "/usr/include/bits/types/struct_tm.h"
+ 358              		.file 35 "/usr/include/bits/types.h"
+ 359              		.file 36 "/usr/include/bits/stdint-intn.h"
+ 360              		.file 37 "/usr/include/bits/stdint-uintn.h"
+ 361              		.file 38 "/usr/include/stdint.h"
+ 362              		.file 39 "/usr/include/locale.h"
+ 363              		.file 40 "/usr/include/bits/types/time_t.h"
+ 364              		.file 41 "/usr/include/bits/types/clock_t.h"
+ 365              		.file 42 "/usr/include/time.h"
+ 366              		.file 43 "/usr/include/c++/8/x86_64-redhat-linux/bits/atomic_word.h"
+ 367              		.file 44 "/usr/include/stdlib.h"
+ 368              		.file 45 "/usr/include/bits/types/__fpos_t.h"
+ 369              		.file 46 "/usr/include/stdio.h"
+ 370              		.file 47 "/usr/include/bits/sys_errlist.h"
+ 371              		.file 48 "/usr/include/errno.h"
+ 372              		.file 49 "/usr/include/bits/wctype-wchar.h"
+ 373              		.file 50 "/usr/include/wctype.h"
